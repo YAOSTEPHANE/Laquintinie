@@ -29,6 +29,7 @@ import {
   SERVICES,
 } from "@/data/hospital-data";
 import { PractitionerPortraitFrame } from "@/components/ui/framed-media";
+import { MedicalBackdrop } from "@/components/ui/medical-backdrop";
 import { PageHero } from "@/components/ui/page-hero";
 
 const STEP_LABELS = [
@@ -187,7 +188,9 @@ export function BookingWizard() {
         }
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+      <div className="relative overflow-x-clip">
+        <MedicalBackdrop variant="clinical" />
+        <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
         {/* 8-Step Horizontal Progress Stepper */}
         <nav
           aria-label={t({ fr: "Progression de la réservation", en: "Booking progress" })}
@@ -246,11 +249,11 @@ export function BookingWizard() {
                     className={`flex flex-col items-start rounded-2xl border-2 p-5 text-left transition-all ${
                       beneficiary === "self"
                         ? "border-[#0A66C2] bg-[#E8F2FC]/45"
-                        : "border-[#08162B]/10 bg-[#F8F7F4] hover:border-[#0A66C2]/40"
+                        : "border-[#071A33]/10 bg-[#F2F7FC] hover:border-[#0A66C2]/40"
                     }`}
                   >
                     <User className="h-7 w-7 text-[#0A66C2]" aria-hidden="true" />
-                    <span className="mt-4 text-base font-bold text-[#08162B]">
+                    <span className="mt-4 text-base font-bold text-[#071A33]">
                       {t({ fr: "Pour moi", en: "For myself" })}
                     </span>
                     <span className="mt-1 text-xs text-[#475569]">
@@ -268,11 +271,11 @@ export function BookingWizard() {
                     className={`flex flex-col items-start rounded-2xl border-2 p-5 text-left transition-all ${
                       beneficiary === "relative"
                         ? "border-[#0A66C2] bg-[#E8F2FC]/45"
-                        : "border-[#08162B]/10 bg-[#F8F7F4] hover:border-[#0A66C2]/40"
+                        : "border-[#071A33]/10 bg-[#F2F7FC] hover:border-[#0A66C2]/40"
                     }`}
                   >
-                    <Users className="h-7 w-7 text-[#B8892E]" aria-hidden="true" />
-                    <span className="mt-4 text-base font-bold text-[#08162B]">
+                    <Users className="h-7 w-7 text-[#0D9488]" aria-hidden="true" />
+                    <span className="mt-4 text-base font-bold text-[#071A33]">
                       {t({ fr: "Pour un proche", en: "For a relative" })}
                     </span>
                     <span className="mt-1 text-xs text-[#475569]">
@@ -285,7 +288,7 @@ export function BookingWizard() {
                 </div>
 
                 {/* Privacy Link directly on Step 1 */}
-                <div className="mt-6 flex items-start gap-2.5 rounded-2xl border border-[#08162B]/10 bg-[#F8F7F4] p-4 text-xs text-[#475569]">
+                <div className="mt-6 flex items-start gap-2.5 rounded-2xl border border-[#071A33]/10 bg-[#F2F7FC] p-4 text-xs text-[#475569]">
                   <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#0A66C2]" aria-hidden="true" />
                   <span>
                     {t({
@@ -339,7 +342,7 @@ export function BookingWizard() {
                       value={deptQuery}
                       onChange={(e) => setDeptQuery(e.target.value)}
                       placeholder={t({ fr: "Filtrer un pôle...", en: "Filter department..." })}
-                      className="w-full rounded-full border border-[#08162B]/15 bg-[#F8F7F4] py-2 pl-9 pr-3 text-xs text-[#08162B] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
+                      className="w-full rounded-full border border-[#071A33]/15 bg-[#F2F7FC] py-2 pl-9 pr-3 text-xs text-[#071A33] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
                     />
                   </div>
                 </div>
@@ -359,7 +362,7 @@ export function BookingWizard() {
                         className={`flex items-start gap-3 rounded-2xl border-2 p-4 text-left transition-all ${
                           active
                             ? "border-[#0A66C2] bg-[#E8F2FC]/40"
-                            : "border-[#08162B]/10 bg-[#F8F7F4] hover:border-[#0A66C2]/30"
+                            : "border-[#071A33]/10 bg-[#F2F7FC] hover:border-[#0A66C2]/30"
                         }`}
                       >
                         <span
@@ -416,7 +419,7 @@ export function BookingWizard() {
                       className={`w-full rounded-2xl border-2 p-4 text-left transition-all ${
                         serviceSlug === svc.slug
                           ? "border-[#0A66C2] bg-[#E8F2FC]/40"
-                          : "border-[#08162B]/10 bg-[#F8F7F4]"
+                          : "border-[#071A33]/10 bg-[#F2F7FC]"
                       }`}
                     >
                       <p className="text-sm font-bold text-[#08162B]">{t(svc.name)}</p>
@@ -465,7 +468,7 @@ export function BookingWizard() {
                       className={`rounded-2xl border-2 p-4 text-left transition-all ${
                         tariffType === tier.id
                           ? "border-[#0A66C2] bg-[#E8F2FC]/40"
-                          : "border-[#08162B]/10 bg-[#F8F7F4]"
+                          : "border-[#071A33]/10 bg-[#F2F7FC]"
                       }`}
                     >
                       <p className="text-xs font-bold text-[#08162B]">{t(tier.title)}</p>
@@ -517,10 +520,10 @@ export function BookingWizard() {
                     className={`w-full rounded-2xl border-2 p-4 text-left ${
                       doctorId === "any"
                         ? "border-[#0A66C2] bg-[#E8F2FC]/40"
-                        : "border-[#08162B]/10 bg-[#F8F7F4]"
+                        : "border-[#071A33]/10 bg-[#F2F7FC]"
                     }`}
                   >
-                    <p className="text-sm font-bold text-[#08162B]">
+                    <p className="text-sm font-bold text-[#071A33]">
                       {t({
                         fr: "Premier praticien disponible dans le service",
                         en: "First available physician in department",
@@ -539,7 +542,7 @@ export function BookingWizard() {
                       className={`flex w-full items-center gap-4 rounded-2xl border-2 p-4 text-left ${
                         doctorId === doc.id
                           ? "border-[#0A66C2] bg-[#E8F2FC]/40"
-                          : "border-[#08162B]/10 bg-[#F8F7F4]"
+                          : "border-[#071A33]/10 bg-[#F2F7FC]"
                       }`}
                     >
                       <PractitionerPortraitFrame src={doc.photo} name={doc.name} size="sm" />
@@ -599,8 +602,8 @@ export function BookingWizard() {
                             onClick={() => setSelectedDate(d.iso)}
                             className={`rounded-xl border px-3 py-2 text-xs font-bold transition-all ${
                               active
-                                ? "border-[#0A66C2] bg-[#08162B] text-white"
-                                : "border-[#08162B]/15 bg-[#F8F7F4] text-[#08162B] hover:border-[#0A66C2]"
+                                ? "border-[#0A66C2] bg-[#071A33] text-white"
+                                : "border-[#071A33]/15 bg-[#F2F7FC] text-[#071A33] hover:border-[#0A66C2]"
                             }`}
                           >
                             {t({ fr: d.fr, en: d.en })}
@@ -611,7 +614,7 @@ export function BookingWizard() {
 
                     <label
                       htmlFor="booking-date"
-                      className="mt-4 block text-xs font-bold uppercase tracking-wider text-[#08162B]"
+                      className="mt-4 block text-xs font-bold uppercase tracking-wider text-[#071A33]"
                     >
                       {t({ fr: "Ou choisir une autre date", en: "Or pick a custom date" })}
                     </label>
@@ -621,13 +624,13 @@ export function BookingWizard() {
                       value={selectedDate}
                       min="2026-11-24"
                       onChange={(e) => setSelectedDate(e.target.value)}
-                      className="mt-2 w-full rounded-2xl border border-[#08162B]/20 bg-[#F8F7F4] px-4 py-3 font-mono text-sm text-[#08162B]"
+                      className="mt-2 w-full rounded-2xl border border-[#071A33]/20 bg-[#F2F7FC] px-4 py-3 font-mono text-sm text-[#071A33]"
                     />
                   </div>
 
                   <div className="space-y-4">
                     <div>
-                      <span className="block text-xs font-bold uppercase tracking-wider text-[#08162B]">
+                      <span className="block text-xs font-bold uppercase tracking-wider text-[#071A33]">
                         {t({ fr: "Matin", en: "Morning" })}
                       </span>
                       <div className="mt-2 grid grid-cols-2 gap-2">
@@ -639,7 +642,7 @@ export function BookingWizard() {
                             className={`rounded-xl border py-2.5 font-mono text-xs font-bold transition-colors ${
                               selectedTime === slot
                                 ? "border-[#0A66C2] bg-[#0A66C2] text-white"
-                                : "border-[#08162B]/15 bg-[#F8F7F4] text-[#08162B] hover:border-[#0A66C2]"
+                                : "border-[#071A33]/15 bg-[#F2F7FC] text-[#071A33] hover:border-[#0A66C2]"
                             }`}
                           >
                             {slot}
@@ -649,7 +652,7 @@ export function BookingWizard() {
                     </div>
 
                     <div>
-                      <span className="block text-xs font-bold uppercase tracking-wider text-[#08162B]">
+                      <span className="block text-xs font-bold uppercase tracking-wider text-[#071A33]">
                         {t({ fr: "Après-midi", en: "Afternoon" })}
                       </span>
                       <div className="mt-2 grid grid-cols-2 gap-2">
@@ -661,7 +664,7 @@ export function BookingWizard() {
                             className={`rounded-xl border py-2.5 font-mono text-xs font-bold transition-colors ${
                               selectedTime === slot
                                 ? "border-[#0A66C2] bg-[#0A66C2] text-white"
-                                : "border-[#08162B]/15 bg-[#F8F7F4] text-[#08162B] hover:border-[#0A66C2]"
+                                : "border-[#071A33]/15 bg-[#F2F7FC] text-[#071A33] hover:border-[#0A66C2]"
                             }`}
                           >
                             {slot}
@@ -723,14 +726,14 @@ export function BookingWizard() {
                       value={patientName}
                       onChange={(e) => setPatientName(e.target.value)}
                       placeholder="Ex : Aline Ngo Biyong"
-                      className="mt-1.5 w-full rounded-xl border border-[#08162B]/20 bg-[#F8F7F4] px-4 py-3 text-sm"
+                      className="mt-1.5 w-full rounded-xl border border-[#071A33]/20 bg-[#F2F7FC] px-4 py-3 text-sm"
                     />
                   </div>
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
                       <label
                         htmlFor="patient-phone"
-                        className="block text-xs font-bold uppercase tracking-wider text-[#08162B]"
+                        className="block text-xs font-bold uppercase tracking-wider text-[#071A33]"
                       >
                         {t({ fr: "Téléphone *", en: "Phone number *" })}
                       </label>
@@ -741,13 +744,13 @@ export function BookingWizard() {
                         value={patientPhone}
                         onChange={(e) => setPatientPhone(e.target.value)}
                         placeholder="+237 6XX XX XX XX"
-                        className="mt-1.5 w-full rounded-xl border border-[#08162B]/20 bg-[#F8F7F4] px-4 py-3 font-mono text-sm"
+                        className="mt-1.5 w-full rounded-xl border border-[#071A33]/20 bg-[#F2F7FC] px-4 py-3 font-mono text-sm"
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="patient-email"
-                        className="block text-xs font-bold uppercase tracking-wider text-[#08162B]"
+                        className="block text-xs font-bold uppercase tracking-wider text-[#071A33]"
                       >
                         {t({ fr: "Adresse e-mail", en: "Email address" })}
                       </label>
@@ -757,7 +760,7 @@ export function BookingWizard() {
                         value={patientEmail}
                         onChange={(e) => setPatientEmail(e.target.value)}
                         placeholder="patient@exemple.cm"
-                        className="mt-1.5 w-full rounded-xl border border-[#08162B]/20 bg-[#F8F7F4] px-4 py-3 text-sm"
+                        className="mt-1.5 w-full rounded-xl border border-[#071A33]/20 bg-[#F2F7FC] px-4 py-3 text-sm"
                       />
                     </div>
                   </div>
@@ -796,7 +799,7 @@ export function BookingWizard() {
                   })}
                 </h2>
 
-                <dl className="mt-5 space-y-3 rounded-2xl border border-[#08162B]/10 bg-[#F8F7F4] p-5 text-sm">
+                <dl className="mt-5 space-y-3 rounded-2xl border border-[#071A33]/10 bg-[#F2F7FC] p-5 text-sm">
                   <div className="flex flex-col gap-1 sm:flex-row sm:justify-between sm:gap-4">
                     <dt className="text-[#475569]">{t({ fr: "Patient", en: "Patient" })}</dt>
                     <dd className="break-words font-bold text-[#08162B]">
@@ -894,7 +897,7 @@ export function BookingWizard() {
                   <button
                     type="button"
                     onClick={handleCopyRef}
-                    className="no-print inline-flex items-center gap-1 rounded-full border border-[#08162B]/15 bg-[#F8F7F4] px-3 py-1 text-[11px] font-bold text-[#08162B] hover:border-[#0A66C2]"
+                    className="no-print inline-flex items-center gap-1 rounded-full border border-[#071A33]/15 bg-[#F2F7FC] px-3 py-1 text-[11px] font-bold text-[#071A33] hover:border-[#0A66C2]"
                   >
                     {copied ? (
                       <>
@@ -911,10 +914,10 @@ export function BookingWizard() {
                 </div>
 
                 {/* Printable Digital Pass Card */}
-                <div className="mx-auto mt-6 max-w-lg overflow-hidden rounded-3xl border border-[#08162B]/15 bg-[#F8F7F4] text-left shadow-sm">
-                  <div className="flex flex-wrap items-center justify-between gap-2 bg-[#08162B] px-5 py-3.5 text-white sm:px-6">
+                <div className="mx-auto mt-6 max-w-lg overflow-hidden rounded-3xl border border-[#071A33]/15 bg-[#F2F7FC] text-left shadow-sm">
+                  <div className="flex flex-wrap items-center justify-between gap-2 bg-[#071A33] px-5 py-3.5 text-white sm:px-6">
                     <div>
-                      <p className="text-xs font-bold tracking-wide text-[#DFB860]">
+                      <p className="text-xs font-bold tracking-wide text-[#38BDF8]">
                         HÔPITAL LAQUINTINIE DE DOUALA
                       </p>
                       <p className="text-[11px] text-slate-300">
@@ -930,14 +933,14 @@ export function BookingWizard() {
                         <p className="text-xs font-bold uppercase text-[#475569]">
                           {t(selectedDept.name)}
                         </p>
-                        <p className="mt-1 break-words text-base font-extrabold text-[#08162B]">
+                        <p className="mt-1 break-words text-base font-extrabold text-[#071A33]">
                           {t(selectedService.name)}
                         </p>
                         <p className="mt-1 font-mono text-xs font-bold text-[#0A66C2]">
                           {selectedDate} · {selectedTime}
                         </p>
                         <p className="mt-2 inline-flex items-center gap-1.5 text-xs font-medium text-[#475569]">
-                          <MapPin className="h-3.5 w-3.5 shrink-0 text-[#B8892E]" aria-hidden="true" />
+                          <MapPin className="h-3.5 w-3.5 shrink-0 text-[#0D9488]" aria-hidden="true" />
                           <span>{t(selectedService.location)}</span>
                         </p>
                       </div>
@@ -1096,7 +1099,7 @@ export function BookingWizard() {
               </dl>
             </div>
 
-            <div className="rounded-3xl bg-[#08162B] p-6 text-white shadow-xl">
+            <div className="relative overflow-hidden rounded-3xl bg-[#071A33] p-6 text-white shadow-xl">
               <p className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#ef4444]">
                 <ShieldAlert className="h-4 w-4" aria-hidden="true" />
                 {t({ fr: "Urgence médicale ?", en: "Medical emergency?" })}
@@ -1125,6 +1128,7 @@ export function BookingWizard() {
               </div>
             </div>
           </aside>
+        </div>
         </div>
       </div>
     </>

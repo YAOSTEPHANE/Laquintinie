@@ -19,6 +19,7 @@ import {
 import { useLanguage } from "@/context/language-context";
 import { DEPARTMENTS, DOCTORS, SERVICES } from "@/data/hospital-data";
 import { OverlappingImageShowcase } from "@/components/ui/framed-media";
+import { MedicalBackdrop } from "@/components/ui/medical-backdrop";
 import { PageHero } from "@/components/ui/page-hero";
 
 export default function DepartementsPage() {
@@ -112,7 +113,9 @@ export default function DepartementsPage() {
         ]}
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
+      <div className="relative overflow-x-clip">
+        <MedicalBackdrop variant="clinical" />
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
         {/* Controls Bar: Search + View Mode + Expand/Collapse */}
         <div className="flex flex-col justify-between gap-4 rounded-3xl border border-white bg-white p-4 shadow-premium sm:p-5 lg:flex-row lg:items-center">
           <div className="relative flex-1 lg:max-w-md">
@@ -132,7 +135,7 @@ export default function DepartementsPage() {
                 fr: "Rechercher un pôle, chef de département ou service...",
                 en: "Search department, chair or unit...",
               })}
-              className="w-full rounded-full border border-[#08162B]/15 bg-[#F8F7F4] py-2.5 pl-11 pr-4 text-sm text-[#08162B] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
+              className="w-full rounded-full border border-[#071A33]/15 bg-[#F2F7FC] py-2.5 pl-11 pr-4 text-sm text-[#071A33] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
             />
           </div>
 
@@ -141,7 +144,7 @@ export default function DepartementsPage() {
               <button
                 type="button"
                 onClick={toggleAll}
-                className="rounded-full border border-[#08162B]/15 bg-[#F8F7F4] px-4 py-2 text-xs font-bold text-[#08162B] transition-colors hover:border-[#0A66C2] hover:text-[#0A66C2]"
+                className="rounded-full border border-[#071A33]/15 bg-[#F2F7FC] px-4 py-2 text-xs font-bold text-[#071A33] transition-colors hover:border-[#0A66C2] hover:text-[#0A66C2]"
               >
                 {allExpanded
                   ? t({ fr: "Tout réduire", en: "Collapse all" })
@@ -152,7 +155,7 @@ export default function DepartementsPage() {
             <div
               role="group"
               aria-label={t({ fr: "Mode d'affichage", en: "View mode" })}
-              className="inline-flex rounded-full border border-[#08162B]/15 bg-[#F8F7F4] p-1"
+              className="inline-flex rounded-full border border-[#071A33]/15 bg-[#F2F7FC] p-1"
             >
               <button
                 type="button"
@@ -220,8 +223,8 @@ export default function DepartementsPage() {
 
         {/* Empty State */}
         {filteredDepts.length === 0 ? (
-          <div className="mt-6 rounded-3xl border border-[#08162B]/10 bg-white p-12 text-center shadow-premium">
-            <Sparkles className="mx-auto h-9 w-9 text-[#B8892E]" aria-hidden="true" />
+          <div className="mt-6 rounded-3xl border border-[#071A33]/10 bg-white p-12 text-center shadow-premium">
+            <Sparkles className="mx-auto h-9 w-9 text-[#0A66C2]" aria-hidden="true" />
             <h2 className="mt-3 text-lg font-bold text-[#08162B]">
               {t({
                 fr: "Aucun département ne correspond à votre recherche",
@@ -264,7 +267,7 @@ export default function DepartementsPage() {
                   />
                   <div className="p-6">
                     <div className="flex items-start gap-4">
-                      <div className="relative h-20 w-24 shrink-0 overflow-hidden rounded-2xl bg-[#EFECE6]">
+                      <div className="relative h-20 w-24 shrink-0 overflow-hidden rounded-2xl bg-[#E6F0FA]">
                         <Image
                           src={dept.image}
                           alt={t(dept.name)}
@@ -303,7 +306,7 @@ export default function DepartementsPage() {
                         {deptServices.map((svc) => (
                           <div
                             key={svc.slug}
-                            className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-[#08162B]/8 bg-[#F8F7F4] px-3.5 py-2.5"
+                            className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-[#071A33]/8 bg-[#F2F7FC] px-3.5 py-2.5"
                           >
                             <Link
                               href={`/services/${svc.slug}`}
@@ -328,9 +331,9 @@ export default function DepartementsPage() {
                     ) : null}
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#08162B]/8 bg-[#F8F7F4]/70 px-6 py-4">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#071A33]/8 bg-[#F2F7FC]/75 px-6 py-4">
                     <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[#475569]">
-                      <Building2 className="h-3.5 w-3.5 text-[#B8892E]" aria-hidden="true" />
+                      <Building2 className="h-3.5 w-3.5 text-[#0D9488]" aria-hidden="true" />
                       {t(dept.building)}
                     </span>
                     <Link
@@ -366,7 +369,7 @@ export default function DepartementsPage() {
                     type="button"
                     aria-expanded={isOpen}
                     onClick={() => toggleDept(dept.slug)}
-                    className="flex w-full items-center justify-between gap-3 p-5 text-left transition-colors hover:bg-[#F8F7F4]/70 sm:gap-4 sm:p-6"
+                    className="flex w-full items-center justify-between gap-3 p-5 text-left transition-colors hover:bg-[#F2F7FC]/75 sm:gap-4 sm:p-6"
                   >
                     <div className="flex min-w-0 flex-1 items-center gap-3.5 sm:gap-4">
                       <span
@@ -377,10 +380,10 @@ export default function DepartementsPage() {
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-center gap-2">
-                          <h2 className="break-words text-base font-extrabold text-[#08162B] sm:text-xl">
+                          <h2 className="break-words text-base font-extrabold text-[#071A33] sm:text-xl">
                             {t(dept.name)}
                           </h2>
-                          <span className="rounded-full bg-[#F8F7F4] px-2.5 py-0.5 text-[11px] font-bold text-[#475569]">
+                          <span className="rounded-full bg-[#F2F7FC] px-2.5 py-0.5 text-[11px] font-bold text-[#475569]">
                             {deptDoctorsCount} {t({ fr: "médecins", en: "physicians" })}
                           </span>
                         </div>
@@ -390,7 +393,7 @@ export default function DepartementsPage() {
                       </div>
                     </div>
                     <ChevronDown
-                      className={`h-5 w-5 shrink-0 text-[#08162B] transition-transform duration-300 ${
+                      className={`h-5 w-5 shrink-0 text-[#071A33] transition-transform duration-300 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                       aria-hidden="true"
@@ -398,7 +401,7 @@ export default function DepartementsPage() {
                   </button>
 
                   {isOpen ? (
-                    <div className="border-t border-[#08162B]/8 bg-[#F8F7F4]/60 p-5 sm:p-8">
+                    <div className="border-t border-[#071A33]/8 bg-[#F2F7FC]/65 p-5 sm:p-8">
                       <div className="grid items-center gap-8 lg:grid-cols-12">
                         <div className="min-w-0 lg:col-span-5">
                           <OverlappingImageShowcase
@@ -408,7 +411,7 @@ export default function DepartementsPage() {
                             secondarySrc={dept.secondaryImage}
                             secondaryAlt={t(dept.shortName)}
                             secondaryCaption={dept.chief}
-                            ringColorClass="ring-[#F8F7F4]"
+                            ringColorClass="ring-[#F2F7FC]"
                             align="left"
                           />
                         </div>
@@ -507,6 +510,7 @@ export default function DepartementsPage() {
             })}
           </div>
         )}
+        </div>
       </div>
     </>
   );

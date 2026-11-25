@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/context/language-context";
 import { HOSPITAL_CONTACT } from "@/data/hospital-data";
+import { MedicalBackdrop } from "@/components/ui/medical-backdrop";
 
 export function SiteFooter() {
   const { t } = useLanguage();
@@ -42,20 +43,20 @@ export function SiteFooter() {
 
   return (
     <>
-      <footer className="no-print relative mt-20 overflow-hidden bg-[#08162B] text-white">
-        {/* Champagne Gold Top Architectural Accent Hairline */}
+      <footer className="no-print relative mt-20 overflow-hidden bg-[#071A33] text-white">
+        {/* Clinical Sky & Teal Top Accent Hairline */}
         <div
           aria-hidden="true"
-          className="h-1 w-full bg-gradient-to-r from-[#0A66C2] via-[#DFB860] to-[#0A66C2]"
+          className="h-1 w-full bg-gradient-to-r from-[#0A66C2] via-[#0EA5E9] to-[#0D9488]"
         />
-        <div className="bg-arch-grid-dark pointer-events-none absolute inset-0 opacity-35" />
+        <MedicalBackdrop variant="dark-clinical" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12">
             {/* Brand Column */}
             <div className="min-w-0 lg:col-span-4">
               <Link href="/" className="inline-flex items-center gap-3.5">
-                <div className="h-14 w-14 overflow-hidden rounded-full ring-2 ring-[#DFB860]/60">
+                <div className="h-14 w-14 overflow-hidden rounded-full ring-2 ring-sky-400/50">
                   <Image
                     src="/images/brand/logo-hl.webp"
                     alt="Logo Hôpital Laquintinie"
@@ -68,7 +69,7 @@ export function SiteFooter() {
                   <p className="text-lg font-bold tracking-tight text-white">
                     Hôpital Laquintinie
                   </p>
-                  <p className="text-xs font-medium text-[#DFB860]">
+                  <p className="text-xs font-medium text-[#38BDF8]">
                     {t({ fr: "Douala · depuis 1931", en: "Douala · since 1931" })}
                   </p>
                 </div>
@@ -83,13 +84,13 @@ export function SiteFooter() {
 
               {/* Emergency Quick Pill inside Footer */}
               <div className="mt-6 rounded-2xl border border-white/15 bg-white/5 p-4">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-[#DFB860]">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#38BDF8]">
                   {t({ fr: "Ligne directe Urgences 24h/24", en: "24/7 Emergency Direct Line" })}
                 </p>
                 <div className="mt-2 flex flex-wrap items-center gap-4">
                   <a
                     href={`tel:${HOSPITAL_CONTACT.emergencyPhoneRaw}`}
-                    className="inline-flex items-center gap-2 font-mono text-sm font-bold text-white transition-colors hover:text-[#DFB860]"
+                    className="inline-flex items-center gap-2 font-mono text-sm font-bold text-white transition-colors hover:text-[#38BDF8]"
                   >
                     <Phone className="h-4 w-4 text-[#ef4444]" aria-hidden="true" />
                     {HOSPITAL_CONTACT.emergencyPhone}
@@ -110,7 +111,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook (nouvel onglet)"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-xs font-bold text-white transition-colors hover:border-[#DFB860] hover:bg-white/10"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-xs font-bold text-white transition-colors hover:border-[#38BDF8] hover:bg-white/10"
                 >
                   f
                 </a>
@@ -119,7 +120,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="X (nouvel onglet)"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-xs font-bold text-white transition-colors hover:border-[#DFB860] hover:bg-white/10"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-xs font-bold text-white transition-colors hover:border-[#38BDF8] hover:bg-white/10"
                 >
                   𝕏
                 </a>
@@ -128,7 +129,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn (nouvel onglet)"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-xs font-bold text-white transition-colors hover:border-[#DFB860] hover:bg-white/10"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-xs font-bold text-white transition-colors hover:border-[#38BDF8] hover:bg-white/10"
                 >
                   in
                 </a>
@@ -138,7 +139,7 @@ export function SiteFooter() {
             {/* Footer Columns */}
             <div className="grid min-w-0 grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-8">
               <div>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-[#DFB860]">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-[#38BDF8]">
                   {t({ fr: "À propos", en: "About" })}
                 </h2>
                 <ul className="mt-4 space-y-2.5 text-sm text-slate-300">
@@ -171,7 +172,7 @@ export function SiteFooter() {
               </div>
 
               <div>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-[#DFB860]">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-[#38BDF8]">
                   {t({ fr: "Patients", en: "Patients" })}
                 </h2>
                 <ul className="mt-4 space-y-2.5 text-sm text-slate-300">
@@ -204,7 +205,7 @@ export function SiteFooter() {
               </div>
 
               <div>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-[#DFB860]">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-[#38BDF8]">
                   {t({ fr: "Médias", en: "Media" })}
                 </h2>
                 <ul className="mt-4 space-y-2.5 text-sm text-slate-300">
@@ -227,7 +228,7 @@ export function SiteFooter() {
               </div>
 
               <div>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-[#DFB860]">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-[#38BDF8]">
                   {t({ fr: "Contact", en: "Contact" })}
                 </h2>
                 <ul className="mt-4 space-y-3 text-sm text-slate-300">
@@ -246,7 +247,7 @@ export function SiteFooter() {
                       href={`mailto:${HOSPITAL_CONTACT.email}`}
                       className="inline-flex items-center gap-1.5 break-all hover:text-white"
                     >
-                      <Mail className="h-3.5 w-3.5 shrink-0 text-[#DFB860]" aria-hidden="true" />
+                      <Mail className="h-3.5 w-3.5 shrink-0 text-[#38BDF8]" aria-hidden="true" />
                       {HOSPITAL_CONTACT.email}
                     </a>
                   </li>
@@ -257,7 +258,7 @@ export function SiteFooter() {
                         setSubmitted(false);
                         setContactOpen(true);
                       }}
-                      className="inline-flex items-center gap-2 rounded-full border border-[#DFB860]/50 bg-[#DFB860]/10 px-3.5 py-2 text-xs font-semibold text-[#DFB860] transition-colors hover:bg-[#DFB860] hover:text-[#08162B]"
+                      className="inline-flex items-center gap-2 rounded-full border border-sky-400/40 bg-sky-400/10 px-3.5 py-2 text-xs font-semibold text-sky-200 transition-colors hover:bg-[#0EA5E9] hover:text-white"
                     >
                       <MessageSquare className="h-3.5 w-3.5" aria-hidden="true" />
                       {t({ fr: "Laissez-nous un message", en: "Send us a message" })}
@@ -282,7 +283,7 @@ export function SiteFooter() {
                 ·
               </span>
               <span className="inline-flex items-center gap-1 text-slate-300">
-                <MapPin className="h-3.5 w-3.5 text-[#DFB860]" aria-hidden="true" />
+                <MapPin className="h-3.5 w-3.5 text-[#38BDF8]" aria-hidden="true" />
                 {HOSPITAL_CONTACT.poBox}, {HOSPITAL_CONTACT.address}, {HOSPITAL_CONTACT.city}
               </span>
             </div>
@@ -304,7 +305,7 @@ export function SiteFooter() {
                 type="button"
                 onClick={scrollToTop}
                 aria-label={t({ fr: "Revenir en haut de la page", en: "Back to top" })}
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-[#10264A] px-3.5 py-2 text-xs font-semibold text-white shadow-lg transition-colors hover:border-[#DFB860] hover:bg-[#0A66C2]"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-[#0C2547] px-3.5 py-2 text-xs font-semibold text-white shadow-lg transition-colors hover:border-[#38BDF8] hover:bg-[#0A66C2]"
               >
                 <span>{t({ fr: "Haut de page", en: "Top" })}</span>
                 <ArrowUp className="h-3.5 w-3.5" aria-hidden="true" />
@@ -347,7 +348,7 @@ export function SiteFooter() {
                 onClick={() => setContactOpen(false)}
                 aria-label={t({ fr: "Fermer", en: "Close" })}
                 autoFocus
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#08162B]/15 text-[#08162B] transition-colors hover:bg-[#EFECE6]"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#071A33]/15 text-[#071A33] transition-colors hover:bg-[#E6F0FA]"
               >
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
@@ -384,14 +385,14 @@ export function SiteFooter() {
                     type="text"
                     required
                     placeholder="Ex : Jean-Paul Mbarga"
-                    className="mt-1.5 w-full rounded-xl border border-[#08162B]/20 bg-[#F8F7F4] px-4 py-2.5 text-sm text-[#08162B] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-sky-200 bg-[#F4F8FC] px-4 py-2.5 text-sm text-[#071A33] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="modal-email"
-                    className="block text-xs font-bold uppercase tracking-wider text-[#08162B]"
+                    className="block text-xs font-bold uppercase tracking-wider text-[#071A33]"
                   >
                     {t({ fr: "Votre adresse e-mail", en: "Email address" })}
                   </label>
@@ -401,14 +402,14 @@ export function SiteFooter() {
                     type="email"
                     required
                     placeholder="nom@exemple.cm"
-                    className="mt-1.5 w-full rounded-xl border border-[#08162B]/20 bg-[#F8F7F4] px-4 py-2.5 text-sm text-[#08162B] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-sky-200 bg-[#F4F8FC] px-4 py-2.5 text-sm text-[#071A33] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="modal-subject"
-                    className="block text-xs font-bold uppercase tracking-wider text-[#08162B]"
+                    className="block text-xs font-bold uppercase tracking-wider text-[#071A33]"
                   >
                     {t({ fr: "Objet de votre demande", en: "Inquiry topic" })}
                   </label>
@@ -417,7 +418,7 @@ export function SiteFooter() {
                     name="subject"
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-[#08162B]/20 bg-[#F8F7F4] px-4 py-2.5 text-sm text-[#08162B] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-sky-200 bg-[#F4F8FC] px-4 py-2.5 text-sm text-[#071A33] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
                   >
                     <option value="orientation">
                       {t({ fr: "Orientation médicale", en: "Medical orientation" })}
@@ -437,7 +438,7 @@ export function SiteFooter() {
                 <div>
                   <label
                     htmlFor="modal-message"
-                    className="block text-xs font-bold uppercase tracking-wider text-[#08162B]"
+                    className="block text-xs font-bold uppercase tracking-wider text-[#071A33]"
                   >
                     {t({ fr: "Votre message", en: "Your message" })}
                   </label>
@@ -446,7 +447,7 @@ export function SiteFooter() {
                     name="message"
                     rows={4}
                     required
-                    className="mt-1.5 w-full rounded-xl border border-[#08162B]/20 bg-[#F8F7F4] px-4 py-2.5 text-sm text-[#08162B] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-sky-200 bg-[#F4F8FC] px-4 py-2.5 text-sm text-[#071A33] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
                   />
                 </div>
 

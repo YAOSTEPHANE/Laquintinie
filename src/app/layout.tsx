@@ -120,7 +120,7 @@ export default function RootLayout({
       lang="fr"
       className={`${jakarta.variable} ${cormorant.variable} ${jetbrains.variable}`}
     >
-      <body className="min-h-screen bg-[#F8F7F4] text-[#0A1628] antialiased">
+      <body className="min-h-screen bg-[#F4F8FC] text-[#071A33] antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -129,7 +129,7 @@ export default function RootLayout({
         {/* WCAG Bypass Block / Skip Link */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[#08162B] focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-2xl focus:outline-2 focus:outline-[#DFB860]"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[#071A33] focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-2xl focus:outline-2 focus:outline-[#38BDF8]"
         >
           Aller au contenu principal
         </a>

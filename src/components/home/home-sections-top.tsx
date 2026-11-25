@@ -39,6 +39,7 @@ import {
   ArchitecturalArchFrame,
   OverlappingImageShowcase,
 } from "@/components/ui/framed-media";
+import { MedicalBackdrop } from "@/components/ui/medical-backdrop";
 
 export function HomeSectionsTop() {
   const { locale, t } = useLanguage();
@@ -74,25 +75,20 @@ export function HomeSectionsTop() {
   return (
     <>
       {/* ================================================================
-          1. HERO SECTION — Asymmetric Editorial Split + Overlapping Visuals
+          1. HERO SECTION — Clinical Split + Medical Backdrop Shapes
           ================================================================ */}
-      <section className="relative overflow-hidden bg-arch-grid pb-16 pt-8 sm:pt-12 lg:pb-24 lg:pt-14">
-        {/* Subtle ambient architectural radial glow */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-40 -top-40 h-[540px] w-[540px] rounded-full bg-[#0A66C2]/8 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-48 h-[420px] w-[420px] rounded-full bg-[#DFB860]/12 blur-3xl"
-        />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#E9F3FE] via-[#F3F8FE] to-[#F4F8FC] pb-16 pt-8 sm:pt-12 lg:pb-24 lg:pt-14">
+        <MedicalBackdrop variant="hero" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
             {/* Left Editorial Column (no overlap with image, CTAs always above the fold) */}
             <div className="min-w-0 lg:col-span-6">
-              <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#B8892E]/35 bg-white/90 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-[#08162B] shadow-sm backdrop-blur-md sm:px-4">
-                <span className="h-2 w-2 shrink-0 rounded-full bg-[#B8892E]" aria-hidden="true" />
+              <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#0A66C2]/25 bg-white/95 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-[#0A66C2] shadow-sm backdrop-blur-md sm:px-4">
+                <span className="relative flex h-2.5 w-2.5 shrink-0 items-center justify-center" aria-hidden="true">
+                  <span className="animate-pulse-ring absolute inline-flex h-full w-full rounded-full bg-[#0D9488]" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0D9488]" />
+                </span>
                 <span className="truncate">
                   {t({
                     fr: "Hôpital public de référence · Douala, Cameroun",
@@ -101,8 +97,8 @@ export function HomeSectionsTop() {
                 </span>
               </div>
 
-              <h1 className="mt-6 break-words text-3xl font-extrabold leading-[1.08] tracking-tight text-[#08162B] sm:text-5xl xl:text-[58px]">
-                <span className="font-serif italic font-semibold text-[#B8892E]">
+              <h1 className="mt-6 break-words text-3xl font-extrabold leading-[1.08] tracking-tight text-[#071A33] sm:text-5xl xl:text-[56px]">
+                <span className="bg-gradient-to-r from-[#0A66C2] via-[#0EA5E9] to-[#0D9488] bg-clip-text text-transparent">
                   {t({ fr: "95 ans", en: "95 years" })}
                 </span>{" "}
                 <span>
@@ -124,19 +120,19 @@ export function HomeSectionsTop() {
               <div className="mt-8 flex flex-wrap items-center gap-3.5">
                 <Link
                   href="/rendez-vous"
-                  className="group inline-flex items-center gap-3 rounded-full bg-[#0A66C2] py-3 pl-6 pr-3 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#08162B] hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A66C2] sm:text-base"
+                  className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#0A66C2] to-[#0284C7] py-3 pl-6 pr-3 text-sm font-semibold text-white shadow-[0_14px_32px_-8px_rgba(10,102,194,0.55)] transition-all hover:from-[#071A33] hover:to-[#0C2547] hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A66C2] sm:text-base"
                 >
                   <span>
                     {t({ fr: "Prendre rendez-vous", en: "Book an appointment" })}
                   </span>
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#0A66C2] transition-transform duration-300 group-hover:rotate-45 group-hover:text-[#08162B]">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#0A66C2] transition-transform duration-300 group-hover:rotate-45 group-hover:text-[#071A33]">
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </span>
                 </Link>
 
                 <Link
                   href="#services"
-                  className="inline-flex items-center gap-2 rounded-full border border-[#08162B]/20 bg-white px-6 py-3.5 text-sm font-semibold text-[#08162B] shadow-sm transition-all hover:border-[#0A66C2] hover:text-[#0A66C2] sm:text-base"
+                  className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-6 py-3.5 text-sm font-semibold text-[#071A33] shadow-sm transition-all hover:border-[#0A66C2] hover:text-[#0A66C2] sm:text-base"
                 >
                   <span>
                     {t({ fr: "Découvrir nos services", en: "Explore services" })}
@@ -146,8 +142,8 @@ export function HomeSectionsTop() {
               </div>
 
               {/* Trust Badges & Interactive Film Button */}
-              <div className="mt-9 flex flex-wrap items-center gap-4 border-t border-[#08162B]/10 pt-6">
-                <div className="flex items-center gap-3 rounded-2xl border border-[#08162B]/10 bg-white/90 px-4 py-2.5 shadow-sm">
+              <div className="mt-9 flex flex-wrap items-center gap-4 border-t border-sky-200/80 pt-6">
+                <div className="flex items-center gap-3 rounded-2xl border border-sky-200/80 bg-white/95 px-4 py-2.5 shadow-sm">
                   <Image
                     src="/images/brand/logo-95-ans.webp"
                     alt="Logo officiel 95 ans Hôpital Laquintinie"
@@ -156,7 +152,7 @@ export function HomeSectionsTop() {
                     className="h-11 w-11 shrink-0 object-contain"
                   />
                   <div>
-                    <p className="font-mono text-xs font-bold text-[#08162B]">
+                    <p className="font-mono text-xs font-bold text-[#071A33]">
                       1931 – 2026
                     </p>
                     <p className="text-xs text-[#475569]">
@@ -165,17 +161,16 @@ export function HomeSectionsTop() {
                   </div>
                 </div>
 
-                {/* Accessible interactive film trigger (replaces non-interactive div from audit) */}
                 <button
                   type="button"
                   onClick={() => setFilmOpen(true)}
-                  className="group inline-flex items-center gap-3 rounded-2xl border border-[#08162B]/12 bg-white px-4 py-2.5 text-left shadow-sm transition-all hover:border-[#0A66C2] hover:shadow-md"
+                  className="group inline-flex items-center gap-3 rounded-2xl border border-sky-200/80 bg-white px-4 py-2.5 text-left shadow-sm transition-all hover:border-[#0A66C2] hover:shadow-md"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#08162B] text-white transition-colors group-hover:bg-[#0A66C2]">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#071A33] text-white transition-colors group-hover:bg-[#0A66C2]">
                     <Play className="h-4 w-4 fill-current" aria-hidden="true" />
                   </span>
                   <span>
-                    <span className="block text-sm font-bold text-[#08162B]">
+                    <span className="block text-sm font-bold text-[#071A33]">
                       {t({ fr: "Laquintinie aujourd'hui", en: "Laquintinie today" })}
                     </span>
                     <span className="block text-xs text-[#475569]">
@@ -186,7 +181,7 @@ export function HomeSectionsTop() {
               </div>
             </div>
 
-            {/* Right Visual Column — Sculpted Arch Frame + Overlapping Aerial Pavilion */}
+            {/* Right Visual Column — Clean Framed Photography */}
             <div className="min-w-0 lg:col-span-6">
               <OverlappingImageShowcase
                 primarySrc="/images/campus/hero-hospital.webp"
@@ -194,27 +189,12 @@ export function HomeSectionsTop() {
                   fr: "Façade du bâtiment principal de l'Hôpital Laquintinie de Douala",
                   en: "Main entrance facade of Laquintinie Hospital Douala",
                 })}
-                primaryBadge={t({
-                  fr: "Douala · 9 hectares de soins",
-                  en: "Douala · 9-hectare campus",
-                })}
                 secondarySrc="/images/campus/pavillon-aerial.webp"
                 secondaryAlt={t({
                   fr: "Vue aérienne des pavillons de l'Hôpital Laquintinie",
                   en: "Aerial view of Laquintinie Hospital pavilions",
                 })}
-                secondaryCaption={t({
-                  fr: "Pavillons historiques & modernes",
-                  en: "Historic & modern pavilions",
-                })}
-                floatingMetric={{
-                  value: "24h/24",
-                  label: t({
-                    fr: "Urgences & Maison du Patient",
-                    en: "ER & Patient Support House",
-                  }),
-                }}
-                ringColorClass="ring-[#F8F7F4]"
+                ringColorClass="ring-[#F4F8FC]"
                 priority
                 align="left"
               />
@@ -230,9 +210,17 @@ export function HomeSectionsTop() {
           >
             <Link
               href="/rendez-vous"
-              className="group flex h-full min-w-0 flex-col justify-between rounded-3xl border border-white/80 bg-white p-5 shadow-premium transition-all duration-300 hover:-translate-y-1 hover:border-[#0A66C2]/30 hover:shadow-premium-hover"
+              className="group relative flex h-full min-w-0 flex-col justify-between overflow-hidden rounded-3xl border border-sky-200/80 bg-white/90 p-5 shadow-premium backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#0A66C2]/45 hover:shadow-premium-hover"
             >
-              <div className="flex items-center justify-between">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-[#0EA5E9]/20 to-transparent blur-md transition-transform duration-500 group-hover:scale-125"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-[#0A66C2] to-[#0EA5E9] transition-transform duration-300 group-hover:scale-x-100"
+              />
+              <div className="relative flex items-center justify-between">
                 <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#E8F2FC] text-[#0A66C2]">
                   <Calendar className="h-5 w-5" aria-hidden="true" />
                 </span>
@@ -241,20 +229,28 @@ export function HomeSectionsTop() {
                   aria-hidden="true"
                 />
               </div>
-              <p className="mt-4 text-sm font-bold text-[#08162B]">
+              <p className="relative mt-4 text-sm font-bold text-[#071A33]">
                 {t({ fr: "Rendez-vous", en: "Appointments" })}
               </p>
-              <p className="mt-0.5 text-xs text-[#475569]">
+              <p className="relative mt-0.5 text-xs text-[#475569]">
                 {t({ fr: "En ligne, sans compte", en: "Online, no account needed" })}
               </p>
             </Link>
 
             <Link
               href="#services"
-              className="group rounded-3xl border border-white/80 bg-white p-5 shadow-premium transition-all duration-300 hover:-translate-y-1 hover:border-[#0A66C2]/30 hover:shadow-premium-hover"
+              className="group relative overflow-hidden rounded-3xl border border-sky-200/80 bg-white/90 p-5 shadow-premium backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#0D9488]/45 hover:shadow-premium-hover"
             >
-              <div className="flex items-center justify-between">
-                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#FBF5E8] text-[#B8892E]">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-[#14B8A6]/20 to-transparent blur-md transition-transform duration-500 group-hover:scale-125"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-[#0D9488] to-[#0EA5E9] transition-transform duration-300 group-hover:scale-x-100"
+              />
+              <div className="relative flex items-center justify-between">
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 text-[#0D9488]">
                   <Building2 className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <ArrowUpRight
@@ -262,19 +258,27 @@ export function HomeSectionsTop() {
                   aria-hidden="true"
                 />
               </div>
-              <p className="mt-4 text-sm font-bold text-[#08162B]">
+              <p className="relative mt-4 text-sm font-bold text-[#071A33]">
                 {t({ fr: "Services & Pôles", en: "Services & Units" })}
               </p>
-              <p className="mt-0.5 text-xs text-[#475569]">
+              <p className="relative mt-0.5 text-xs text-[#475569]">
                 {t({ fr: "10 départements · 30+ unités", en: "10 departments · 30+ units" })}
               </p>
             </Link>
 
             <Link
               href="/medecins"
-              className="group rounded-3xl border border-white/80 bg-white p-5 shadow-premium transition-all duration-300 hover:-translate-y-1 hover:border-[#0A66C2]/30 hover:shadow-premium-hover"
+              className="group relative overflow-hidden rounded-3xl border border-sky-200/80 bg-white/90 p-5 shadow-premium backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#0D7A5F]/45 hover:shadow-premium-hover"
             >
-              <div className="flex items-center justify-between">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-emerald-400/20 to-transparent blur-md transition-transform duration-500 group-hover:scale-125"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-[#0D7A5F] to-[#14B8A6] transition-transform duration-300 group-hover:scale-x-100"
+              />
+              <div className="relative flex items-center justify-between">
                 <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 text-[#0D7A5F]">
                   <Stethoscope className="h-5 w-5" aria-hidden="true" />
                 </span>
@@ -283,20 +287,28 @@ export function HomeSectionsTop() {
                   aria-hidden="true"
                 />
               </div>
-              <p className="mt-4 text-sm font-bold text-[#08162B]">
+              <p className="relative mt-4 text-sm font-bold text-[#071A33]">
                 {t({ fr: "Médecins", en: "Doctors" })}
               </p>
-              <p className="mt-0.5 text-xs text-[#475569]">
+              <p className="relative mt-0.5 text-xs text-[#475569]">
                 {t({ fr: "207 praticiens qualifiés", en: "207 qualified physicians" })}
               </p>
             </Link>
 
             <Link
               href="#infos"
-              className="group rounded-3xl border border-white/80 bg-white p-5 shadow-premium transition-all duration-300 hover:-translate-y-1 hover:border-[#0A66C2]/30 hover:shadow-premium-hover"
+              className="group relative overflow-hidden rounded-3xl border border-sky-200/80 bg-white/90 p-5 shadow-premium backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#0284C7]/45 hover:shadow-premium-hover"
             >
-              <div className="flex items-center justify-between">
-                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-700">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-sky-400/20 to-transparent blur-md transition-transform duration-500 group-hover:scale-125"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-[#0284C7] to-[#38BDF8] transition-transform duration-300 group-hover:scale-x-100"
+              />
+              <div className="relative flex items-center justify-between">
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 text-[#0284C7]">
                   <Compass className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <ArrowUpRight
@@ -304,19 +316,26 @@ export function HomeSectionsTop() {
                   aria-hidden="true"
                 />
               </div>
-              <p className="mt-4 text-sm font-bold text-[#08162B]">
+              <p className="relative mt-4 text-sm font-bold text-[#071A33]">
                 {t({ fr: "Plan & Tarifs", en: "Map & Fees" })}
               </p>
-              <p className="mt-0.5 text-xs text-[#475569]">
+              <p className="relative mt-0.5 text-xs text-[#475569]">
                 {t({ fr: "Ngodi Akwa, Douala", en: "Ngodi Akwa, Douala" })}
               </p>
             </Link>
 
-            {/* Real Interactive 24/7 Emergency Call Card — fixes non-clickable audit bug */}
-            <div className="flex flex-col justify-between rounded-3xl bg-gradient-to-br from-[#C81E1E] to-[#991B1B] p-5 text-white shadow-xl">
-              <div className="flex items-center justify-between">
+            {/* Real Interactive 24/7 Emergency Call Card */}
+            <div className="relative flex flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-br from-[#C81E1E] to-[#991B1B] p-5 text-white shadow-[0_18px_38px_-12px_rgba(200,30,30,0.55)]">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10 blur-md"
+              />
+              <div className="relative flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider">
-                  <ShieldAlert className="h-3.5 w-3.5" aria-hidden="true" />
+                  <span className="relative flex h-2 w-2 items-center justify-center" aria-hidden="true">
+                    <span className="animate-pulse-ring absolute inline-flex h-full w-full rounded-full bg-white" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-white" />
+                  </span>
                   {t({ fr: "Urgences 24h/24", en: "24/7 ER" })}
                 </span>
                 <a
@@ -350,16 +369,17 @@ export function HomeSectionsTop() {
       </section>
 
       {/* ================================================================
-          2. SERVICES DIRECTORY — Search + Department Filter + Premium Cards
+          2. SERVICES DIRECTORY — Search + Department Filter + Clinical Cards
           ================================================================ */}
-      <section id="services" className="py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section id="services" className="relative overflow-hidden bg-[#F4F8FC] py-16 lg:py-24">
+        <MedicalBackdrop variant="clinical" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0A66C2]">
                 {t({ fr: "Annuaire médical", en: "Medical Directory" })}
               </p>
-              <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-[#08162B] sm:text-4xl">
+              <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-[#071A33] sm:text-4xl">
                 {t({
                   fr: "Trouvez le service dont vous avez besoin",
                   en: "Find the medical service you need",
@@ -466,16 +486,21 @@ export function HomeSectionsTop() {
                 return (
                   <article
                     key={service.slug}
-                    className="group relative flex min-w-0 flex-col justify-between overflow-hidden rounded-3xl border border-white/90 bg-white p-5 shadow-premium transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0A66C2]/30 hover:shadow-premium-hover sm:p-6"
+                    className="group relative flex min-w-0 flex-col justify-between overflow-hidden rounded-3xl border border-sky-200/75 bg-white/92 p-5 shadow-premium backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0A66C2]/40 hover:shadow-premium-hover sm:p-6"
                   >
-                    {/* Top Department Color Hairline */}
+                    {/* Glowing Top Department Accent + Soft Radial Halo */}
                     <div
                       aria-hidden="true"
                       className="absolute inset-x-0 top-0 h-1 transition-all duration-300 group-hover:h-1.5"
                       style={{ backgroundColor: dept?.accentColor ?? "#0A66C2" }}
                     />
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full opacity-[0.16] blur-xl transition-opacity duration-500 group-hover:opacity-30"
+                      style={{ backgroundColor: dept?.accentColor ?? "#0A66C2" }}
+                    />
 
-                    <div>
+                    <div className="relative">
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <span
                           className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-bold ${dept?.badgeBg ?? "border-slate-200 bg-slate-50 text-slate-700"
@@ -488,7 +513,7 @@ export function HomeSectionsTop() {
                         </span>
                       </div>
 
-                      <h3 className="mt-4 text-left text-lg font-bold leading-snug text-[#08162B] transition-colors group-hover:text-[#0A66C2]">
+                      <h3 className="mt-4 text-left text-lg font-bold leading-snug text-[#071A33] transition-colors group-hover:text-[#0A66C2]">
                         <Link href={`/services/${service.slug}`} className="hover:underline">
                           {t(service.name)}
                         </Link>
@@ -499,18 +524,18 @@ export function HomeSectionsTop() {
                       </p>
 
                       <div className="mt-4 flex flex-wrap items-center gap-2 text-[11px] font-medium text-[#475569]">
-                        <span className="inline-flex items-center gap-1 rounded-full bg-[#F8F7F4] px-2.5 py-1">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-[#F0F6FC] px-2.5 py-1">
                           <Users className="h-3 w-3 text-[#0A66C2]" aria-hidden="true" />
                           {service.doctorCount} {t({ fr: "médecins", en: "physicians" })}
                         </span>
-                        <span className="inline-flex max-w-full items-center gap-1 truncate rounded-full bg-[#F8F7F4] px-2.5 py-1">
-                          <MapPin className="h-3 w-3 shrink-0 text-[#B8892E]" aria-hidden="true" />
+                        <span className="inline-flex max-w-full items-center gap-1 truncate rounded-full bg-[#F0F6FC] px-2.5 py-1">
+                          <MapPin className="h-3 w-3 shrink-0 text-[#0D9488]" aria-hidden="true" />
                           <span className="truncate">{t(service.location)}</span>
                         </span>
                       </div>
                     </div>
 
-                    <div className="mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-[#08162B]/8 pt-4">
+                    <div className="relative mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-[#071A33]/8 pt-4">
                       <Link
                         href={`/services/${service.slug}`}
                         className="inline-flex items-center gap-1.5 text-xs font-bold text-[#08162B] transition-colors hover:text-[#0A66C2]"
@@ -550,10 +575,11 @@ export function HomeSectionsTop() {
       </section>
 
       {/* ================================================================
-          3. PATRIMOINE & MODERNITÉ (#hopital) — Overlapping Framed Photos
+          3. PATRIMOINE & MODERNITÉ (#hopital) — Campus Backdrop + Missions
           ================================================================ */}
-      <section id="hopital" className="bg-white py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section id="hopital" className="relative overflow-hidden bg-white py-16 lg:py-24">
+        <MedicalBackdrop variant="campus" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
             {/* Overlapping Heritage + Clinical Excellence Photography (second on mobile, first on desktop) */}
             <div className="order-2 min-w-0 lg:order-1 lg:col-span-6">
@@ -563,26 +589,11 @@ export function HomeSectionsTop() {
                   fr: "Bâtiment historique de la Direction de l'Hôpital Laquintinie de Douala",
                   en: "Historic administration building of Laquintinie Hospital Douala",
                 })}
-                primaryBadge={t({
-                  fr: "Patrimoine architectural · 1931",
-                  en: "Architectural heritage · 1931",
-                })}
                 secondarySrc="/images/gallery/cardio-1.webp"
                 secondaryAlt={t({
                   fr: "Équipements modernes de cardiologie et d'imagerie à Laquintinie",
                   en: "Modern cardiology and diagnostic equipment at Laquintinie",
                 })}
-                secondaryCaption={t({
-                  fr: "Plateau technique modernisé",
-                  en: "Modernized clinical platform",
-                })}
-                floatingMetric={{
-                  value: "ISO",
-                  label: t({
-                    fr: "3 laboratoires accrédités",
-                    en: "3 accredited laboratories",
-                  }),
-                }}
                 ringColorClass="ring-white"
                 align="right"
               />
@@ -590,12 +601,12 @@ export function HomeSectionsTop() {
 
             {/* Editorial Narrative & 3 Missions (first on mobile, second on desktop) */}
             <div className="order-1 min-w-0 lg:order-2 lg:col-span-6">
-              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#B8892E]">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#0D9488]">
                 <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
                 {t({ fr: "Institution publique de 2e catégorie", en: "Public Referral Institution" })}
               </span>
 
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#08162B] sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#071A33] sm:text-4xl">
                 {t({
                   fr: "L'Hôpital Laquintinie de Douala",
                   en: "Laquintinie Hospital, Douala",
@@ -617,9 +628,11 @@ export function HomeSectionsTop() {
               </p>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-2xl border border-[#08162B]/10 bg-[#F8F7F4] p-4">
-                  <HeartPulse className="h-6 w-6 text-[#C81E1E]" aria-hidden="true" />
-                  <h3 className="mt-3 text-sm font-bold text-[#08162B]">
+                <div className="rounded-2xl border border-sky-100 bg-[#F4F8FC] p-4">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50">
+                    <HeartPulse className="h-5 w-5 text-[#C81E1E]" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-3 text-sm font-bold text-[#071A33]">
                     {t({ fr: "Soins", en: "Care" })}
                   </h3>
                   <p className="mt-1 text-xs leading-relaxed text-[#475569]">
@@ -630,9 +643,11 @@ export function HomeSectionsTop() {
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-[#08162B]/10 bg-[#F8F7F4] p-4">
-                  <GraduationCap className="h-6 w-6 text-[#0A66C2]" aria-hidden="true" />
-                  <h3 className="mt-3 text-sm font-bold text-[#08162B]">
+                <div className="rounded-2xl border border-sky-100 bg-[#F4F8FC] p-4">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#E8F2FC]">
+                    <GraduationCap className="h-5 w-5 text-[#0A66C2]" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-3 text-sm font-bold text-[#071A33]">
                     {t({ fr: "Enseignement", en: "Teaching" })}
                   </h3>
                   <p className="mt-1 text-xs leading-relaxed text-[#475569]">
@@ -643,9 +658,11 @@ export function HomeSectionsTop() {
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-[#08162B]/10 bg-[#F8F7F4] p-4">
-                  <Microscope className="h-6 w-6 text-[#0D7A5F]" aria-hidden="true" />
-                  <h3 className="mt-3 text-sm font-bold text-[#08162B]">
+                <div className="rounded-2xl border border-sky-100 bg-[#F4F8FC] p-4">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50">
+                    <Microscope className="h-5 w-5 text-[#0D9488]" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-3 text-sm font-bold text-[#071A33]">
                     {t({ fr: "Recherche", en: "Research" })}
                   </h3>
                   <p className="mt-1 text-xs leading-relaxed text-[#475569]">
@@ -660,7 +677,7 @@ export function HomeSectionsTop() {
               <div className="mt-8">
                 <Link
                   href="/a-propos"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#08162B] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0A66C2]"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#071A33] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0A66C2]"
                 >
                   <span>
                     {t({
@@ -677,17 +694,17 @@ export function HomeSectionsTop() {
       </section>
 
       {/* ================================================================
-          4. KPI MONUMENT BAND — SSR-Rendered Reconciled Figures (never 0!)
+          4. KPI MONUMENT BAND — Clinical Dark Backdrop + Reconciled Figures
           ================================================================ */}
       <section
         aria-labelledby="kpi-heading"
-        className="relative overflow-hidden bg-[#08162B] py-16 text-white lg:py-20"
+        className="relative overflow-hidden bg-gradient-to-br from-[#071A33] via-[#0B2548] to-[#082F49] py-16 text-white lg:py-20"
       >
-        <div className="bg-arch-grid-dark pointer-events-none absolute inset-0 opacity-45" />
+        <MedicalBackdrop variant="dark-clinical" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-4 border-b border-white/15 pb-8 lg:flex-row lg:items-end">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#DFB860]">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#38BDF8]">
                 {t({ fr: "Chiffres consolidés", en: "Verified Activity Figures" })}
               </p>
               <h2 id="kpi-heading" className="mt-2 text-3xl font-extrabold sm:text-4xl">
@@ -706,9 +723,17 @@ export function HomeSectionsTop() {
             {HOSPITAL_KPIS.map((kpi) => (
               <div
                 key={kpi.id}
-                className="min-w-0 rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-[#DFB860]/50 hover:bg-white/8"
+                className="group relative min-w-0 overflow-hidden rounded-3xl border border-sky-300/20 bg-white/[0.07] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#38BDF8]/60 hover:bg-white/[0.11] hover:shadow-[0_20px_44px_-14px_rgba(56,189,248,0.28)]"
               >
-                <p className="font-mono text-3xl font-bold tracking-tight text-[#DFB860] sm:text-4xl">
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[#38BDF8]/12 blur-xl transition-opacity group-hover:bg-[#38BDF8]/25"
+                />
+                <span
+                  aria-hidden="true"
+                  className="mb-4 block h-1 w-10 rounded-full bg-gradient-to-r from-[#38BDF8] to-[#2DD4BF] shadow-[0_0_12px_rgba(56,189,248,0.7)]"
+                />
+                <p className="font-mono text-3xl font-bold tracking-tight text-[#38BDF8] sm:text-4xl">
                   {kpi.displayValue}
                   {kpi.suffix ? (
                     <span className="ml-1 text-xl font-semibold text-white">
@@ -727,10 +752,19 @@ export function HomeSectionsTop() {
       {/* ================================================================
           5. DIRECTOR'S MESSAGE & 8 INSTITUTIONAL VALUES (#directeur)
           ================================================================ */}
-      <section id="directeur" className="py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="overflow-hidden rounded-[2.25rem] border border-white/90 bg-white p-5 shadow-premium sm:p-10 lg:p-12">
-            <div className="grid items-start gap-10 lg:grid-cols-12">
+      <section id="directeur" className="relative overflow-hidden bg-[#F4F8FC] py-16 lg:py-24">
+        <MedicalBackdrop variant="clinical" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-[2.25rem] border border-sky-200/80 bg-white/92 p-5 shadow-premium backdrop-blur-xl sm:p-10 lg:p-12">
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-12 -top-12 h-52 w-52 rounded-full bg-gradient-to-br from-[#BAE6FD]/70 to-transparent blur-xl"
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-12 -left-12 h-48 w-48 rounded-full bg-gradient-to-tr from-[#99F6E4]/55 to-transparent blur-xl"
+            />
+            <div className="relative grid items-start gap-10 lg:grid-cols-12">
               {/* Framed Director Portrait */}
               <div className="min-w-0 lg:col-span-5">
                 <ArchitecturalArchFrame
@@ -739,8 +773,8 @@ export function HomeSectionsTop() {
                   aspectClass="aspect-[4/5]"
                   sizes="(min-width: 1024px) 420px, 100vw"
                 />
-                <div className="mt-5 rounded-2xl border border-[#08162B]/10 bg-[#F8F7F4] px-4 py-3.5 text-xs">
-                  <p className="text-sm font-extrabold text-[#08162B]">
+                <div className="mt-5 rounded-2xl border border-sky-100 bg-[#F2F7FC] px-4 py-3.5 text-xs">
+                  <p className="text-sm font-extrabold text-[#071A33]">
                     Dr Marie Solange NDOM EBONGUE
                   </p>
                   <div className="mt-1 flex flex-wrap items-center justify-between gap-2">
@@ -760,7 +794,7 @@ export function HomeSectionsTop() {
                 </div>
               </div>
 
-              {/* Editorial Quote & Corrected French Typography */}
+              {/* Editorial Quote & Clinical Commitments */}
               <div className="min-w-0 lg:col-span-7">
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0A66C2]">
                     {t({
@@ -769,7 +803,7 @@ export function HomeSectionsTop() {
                     })}
                   </p>
 
-                  <blockquote className="mt-4 font-serif text-2xl italic font-semibold leading-snug text-[#08162B] sm:text-3xl">
+                  <blockquote className="mt-4 border-l-4 border-[#0A66C2] pl-5 font-sans text-xl font-bold leading-snug text-[#071A33] sm:text-2xl">
                     {locale === "fr"
                       ? "« Un hôpital proche, à l'écoute, compétitif et aux standards internationaux. »"
                       : "“A hospital that is close, attentive, competitive, and built to international standards.”"}
@@ -789,8 +823,8 @@ export function HomeSectionsTop() {
                       })}
                     </p>
                     <ul className="grid gap-2.5 sm:grid-cols-2">
-                      <li className="rounded-2xl bg-[#F8F7F4] p-3.5 text-xs sm:text-sm">
-                        <strong className="text-[#08162B]">
+                      <li className="rounded-2xl border border-sky-100 bg-[#F2F7FC] p-3.5 text-xs sm:text-sm">
+                        <strong className="text-[#071A33]">
                           1. {t({ fr: "Remobiliser l'humain :", en: "Empowering staff:" })}
                         </strong>{" "}
                         {t({
@@ -798,8 +832,8 @@ export function HomeSectionsTop() {
                           en: "strengthening skills and workplace dignity.",
                         })}
                       </li>
-                      <li className="rounded-2xl bg-[#F8F7F4] p-3.5 text-xs sm:text-sm">
-                        <strong className="text-[#08162B]">
+                      <li className="rounded-2xl border border-sky-100 bg-[#F2F7FC] p-3.5 text-xs sm:text-sm">
+                        <strong className="text-[#071A33]">
                           2. {t({ fr: "Moderniser l'outil :", en: "Modernizing facilities:" })}
                         </strong>{" "}
                         {t({
@@ -807,8 +841,8 @@ export function HomeSectionsTop() {
                           en: "upgrading clinical technology to global standards.",
                         })}
                       </li>
-                      <li className="rounded-2xl bg-[#F8F7F4] p-3.5 text-xs sm:text-sm">
-                        <strong className="text-[#08162B]">
+                      <li className="rounded-2xl border border-sky-100 bg-[#F2F7FC] p-3.5 text-xs sm:text-sm">
+                        <strong className="text-[#071A33]">
                           3. {t({ fr: "Processus qualité :", en: "Quality assurance:" })}
                         </strong>{" "}
                         {t({
@@ -816,8 +850,8 @@ export function HomeSectionsTop() {
                           en: "three clinical biology labs now ISO-accredited.",
                         })}
                       </li>
-                      <li className="rounded-2xl bg-[#F8F7F4] p-3.5 text-xs sm:text-sm">
-                        <strong className="text-[#08162B]">
+                      <li className="rounded-2xl border border-sky-100 bg-[#F2F7FC] p-3.5 text-xs sm:text-sm">
+                        <strong className="text-[#071A33]">
                           4. {t({ fr: "Humaniser le soin :", en: "Compassionate care:" })}
                         </strong>{" "}
                         {t({
@@ -828,7 +862,7 @@ export function HomeSectionsTop() {
                     </ul>
 
                     {directorExpanded ? (
-                      <div className="space-y-3 rounded-2xl border border-[#B8892E]/25 bg-[#FBF5E8]/60 p-5 text-sm text-[#08162B]">
+                      <div className="space-y-3 rounded-2xl border border-[#0A66C2]/20 bg-[#E8F2FC]/55 p-5 text-sm text-[#071A33]">
                         <p>
                           {t({
                             fr: "Cette dynamique, soutenue par le Gouvernement camerounais et le Ministère de la Santé Publique, confirme le statut de leader sous-régional de notre institution tout en restant l'hôpital du peuple, accessible à tous.",
@@ -863,17 +897,20 @@ export function HomeSectionsTop() {
                   </div>
 
                   {/* 8 Institutional Engagements */}
-                  <div className="mt-8 border-t border-[#08162B]/10 pt-6">
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-[#08162B]">
+                  <div className="mt-8 border-t border-sky-100 pt-6">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-[#071A33]">
                       {t({ fr: "Nos 8 engagements", en: "Our 8 Commitments" })}
                     </h3>
                     <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4">
-                      {INSTITUTIONAL_VALUES.map((val) => (
+                      {INSTITUTIONAL_VALUES.map((val, idx) => (
                         <div
                           key={val.title.fr}
-                          className="rounded-2xl border border-[#08162B]/10 bg-[#F8F7F4] p-3"
+                          className="rounded-2xl border border-sky-200/70 bg-[#F2F7FC] p-3.5 transition-all hover:-translate-y-0.5 hover:border-[#0A66C2]/40 hover:bg-white hover:shadow-sm"
                         >
-                          <p className="text-xs font-bold text-[#08162B]">{t(val.title)}</p>
+                          <span className="font-mono text-[10px] font-bold text-[#0EA5E9]">
+                            0{idx + 1}
+                          </span>
+                          <p className="mt-1 text-xs font-bold text-[#071A33]">{t(val.title)}</p>
                           <p className="mt-1 text-[11px] leading-snug text-[#475569]">
                             {t(val.desc)}
                           </p>
@@ -896,15 +933,15 @@ export function HomeSectionsTop() {
           aria-modal="true"
           aria-labelledby="film-modal-title"
           onClick={() => setFilmOpen(false)}
-          className="fixed inset-0 z-[90] flex items-center justify-center bg-[#08162B]/80 p-4 backdrop-blur-md"
+          className="fixed inset-0 z-[90] flex items-center justify-center bg-[#071A33]/80 p-4 backdrop-blur-md"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="animate-modal-pop relative w-full max-w-2xl overflow-hidden rounded-3xl border border-white/20 bg-[#08162B] text-white shadow-2xl"
+            className="animate-modal-pop relative w-full max-w-2xl overflow-hidden rounded-3xl border border-sky-300/20 bg-[#071A33] text-white shadow-2xl"
           >
             <div className="flex items-center justify-between border-b border-white/15 px-6 py-4">
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-widest text-[#DFB860]">
+                <p className="text-[11px] font-bold uppercase tracking-widest text-[#38BDF8]">
                   1931 – 2026 · 95 ans
                 </p>
                 <h2 id="film-modal-title" className="text-lg font-bold">
@@ -933,8 +970,8 @@ export function HomeSectionsTop() {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-col items-center border-t border-white/15 bg-[#08162B] p-6 text-center">
-              <Award className="h-10 w-10 text-[#DFB860]" aria-hidden="true" />
+            <div className="flex flex-col items-center border-t border-white/15 bg-[#071A33] p-6 text-center">
+              <Award className="h-10 w-10 text-[#38BDF8]" aria-hidden="true" />
               <p className="mt-3 max-w-md text-base font-bold">
                 {t({
                   fr: "95 ans d'histoire, 207 médecins et 3 laboratoires accrédités ISO au service des Camerounais.",
@@ -944,7 +981,7 @@ export function HomeSectionsTop() {
               <Link
                 href="/a-propos"
                 onClick={() => setFilmOpen(false)}
-                className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#DFB860] px-5 py-2.5 text-xs font-bold text-[#08162B]"
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#0EA5E9] px-5 py-2.5 text-xs font-bold text-white hover:bg-white hover:text-[#071A33]"
               >
                 {t({
                   fr: "Explorer l'histoire complète",

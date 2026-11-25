@@ -13,6 +13,7 @@ import {
   OverlappingImageShowcase,
   PractitionerPortraitFrame,
 } from "@/components/ui/framed-media";
+import { MedicalBackdrop } from "@/components/ui/medical-backdrop";
 import { PageHero } from "@/components/ui/page-hero";
 
 export default function AProposPage() {
@@ -30,7 +31,7 @@ export default function AProposPage() {
           { label: t({ fr: "L'Hôpital", en: "About" }) },
         ]}
         eyebrow="1920 · 1931 – 2026"
-        eyebrowTone="gold"
+        eyebrowTone="cobalt"
         title={t({
           fr: "À propos de l’Hôpital Laquintinie",
           en: "About Laquintinie Hospital",
@@ -53,14 +54,16 @@ export default function AProposPage() {
             secondarySrc="/images/campus/hero-hospital.webp"
             secondaryAlt="Entrée principale de l'Hôpital Laquintinie"
             secondaryCaption={t({ fr: "Campus de 9 hectares", en: "9-hectare campus" })}
-            ringColorClass="ring-[#F8F7F4]"
+            ringColorClass="ring-[#F4F8FC]"
             align="left"
             priority
           />
         }
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+      <div className="relative overflow-x-clip">
+        <MedicalBackdrop variant="clinical" />
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         {/* Chapters + Sticky Summary */}
         <div className="grid gap-10 lg:grid-cols-12">
           <aside className="min-w-0 lg:col-span-4">
@@ -74,45 +77,45 @@ export default function AProposPage() {
                 </p>
                 <ul className="mt-4 space-y-2.5 text-sm font-semibold text-[#475569]">
                   <li>
-                    <a href="#chapitre-1" className="block rounded-xl px-2 py-1 hover:bg-[#F8F7F4] hover:text-[#0A66C2]">
+                    <a href="#chapitre-1" className="block rounded-xl px-2 py-1 hover:bg-[#F2F7FC] hover:text-[#0A66C2]">
                       01 · {t({ fr: "Les origines et l'installation", en: "Origins & establishment" })}
                     </a>
                   </li>
                   <li>
-                    <a href="#chapitre-2" className="block rounded-xl px-2 py-1 hover:bg-[#F8F7F4] hover:text-[#0A66C2]">
+                    <a href="#chapitre-2" className="block rounded-xl px-2 py-1 hover:bg-[#F2F7FC] hover:text-[#0A66C2]">
                       02 · {t({ fr: "Patrimoine architectural", en: "Architectural heritage" })}
                     </a>
                   </li>
                   <li>
-                    <a href="#chapitre-3" className="block rounded-xl px-2 py-1 hover:bg-[#F8F7F4] hover:text-[#0A66C2]">
+                    <a href="#chapitre-3" className="block rounded-xl px-2 py-1 hover:bg-[#F2F7FC] hover:text-[#0A66C2]">
                       03 · {t({ fr: "Hôpital en transformation", en: "Ongoing transformation" })}
                     </a>
                   </li>
                   <li>
-                    <a href="#chapitre-4" className="block rounded-xl px-2 py-1 hover:bg-[#F8F7F4] hover:text-[#0A66C2]">
+                    <a href="#chapitre-4" className="block rounded-xl px-2 py-1 hover:bg-[#F2F7FC] hover:text-[#0A66C2]">
                       04 · {t({ fr: "Proximité et innovation", en: "Proximity & innovation" })}
                     </a>
                   </li>
                   <li>
-                    <a href="#gouvernance" className="block rounded-xl px-2 py-1 hover:bg-[#F8F7F4] hover:text-[#0A66C2]">
+                    <a href="#gouvernance" className="block rounded-xl px-2 py-1 hover:bg-[#F2F7FC] hover:text-[#0A66C2]">
                       05 · {t({ fr: "Gouvernance & Direction", en: "Governance & Leadership" })}
                     </a>
                   </li>
                   <li>
-                    <a href="#engagements" className="block rounded-xl px-2 py-1 hover:bg-[#F8F7F4] hover:text-[#0A66C2]">
+                    <a href="#engagements" className="block rounded-xl px-2 py-1 hover:bg-[#F2F7FC] hover:text-[#0A66C2]">
                       06 · {t({ fr: "Nos 8 engagements", en: "8 Core Commitments" })}
                     </a>
                   </li>
                   <li>
-                    <a href="#donnees" className="block rounded-xl px-2 py-1 hover:bg-[#F8F7F4] hover:text-[#0A66C2]">
+                    <a href="#donnees" className="block rounded-xl px-2 py-1 hover:bg-[#F2F7FC] hover:text-[#0A66C2]">
                       07 · {t({ fr: "Chiffres consolidés", en: "Verified figures" })}
                     </a>
                   </li>
                 </ul>
               </nav>
 
-              <div className="rounded-3xl bg-[#08162B] p-6 text-white shadow-xl">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#DFB860]">
+              <div className="rounded-3xl bg-[#071A33] p-6 text-white shadow-xl">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#38BDF8]">
                   {t({ fr: "Besoin d'une consultation ?", en: "Need a consultation?" })}
                 </p>
                 <p className="mt-2 text-xs leading-relaxed text-slate-300">
@@ -123,7 +126,7 @@ export default function AProposPage() {
                 </p>
                 <Link
                   href="/rendez-vous"
-                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0A66C2] px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#DFB860] hover:text-[#08162B]"
+                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0A66C2] px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#0EA5E9]"
                 >
                   <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
                   <span>{t({ fr: "Prendre rendez-vous", en: "Book appointment" })}</span>
@@ -266,7 +269,7 @@ export default function AProposPage() {
                     <PractitionerPortraitFrame
                       src={member.photo}
                       name={member.name}
-                      accentColor="#B8892E"
+                      accentColor="#0D9488"
                       size="sm"
                     />
                     <div>
@@ -286,23 +289,23 @@ export default function AProposPage() {
         </section>
 
         {/* 8 Institutional Commitments */}
-        <section id="engagements" className="mt-16 rounded-3xl border border-white bg-white p-7 shadow-premium sm:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#B8892E]">
+        <section id="engagements" className="mt-16 rounded-3xl border border-sky-100 bg-white p-7 shadow-premium sm:p-10">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0D9488]">
             {t({ fr: "Charte d'établissement", en: "Institutional Charter" })}
           </p>
-          <h2 className="mt-2 text-2xl font-extrabold text-[#08162B] sm:text-3xl">
+          <h2 className="mt-2 text-2xl font-extrabold text-[#071A33] sm:text-3xl">
             {t({ fr: "Nos 8 engagements quotidiens", en: "Our 8 Daily Commitments" })}
           </h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {INSTITUTIONAL_VALUES.map((val, idx) => (
               <div
                 key={val.title.fr}
-                className="rounded-2xl border border-[#08162B]/10 bg-[#F8F7F4] p-5"
+                className="rounded-2xl border border-sky-100 bg-[#F2F7FC] p-5"
               >
                 <span className="font-mono text-xs font-bold text-[#0A66C2]">
                   0{idx + 1}
                 </span>
-                <h3 className="mt-2 text-sm font-bold text-[#08162B]">{t(val.title)}</h3>
+                <h3 className="mt-2 text-sm font-bold text-[#071A33]">{t(val.title)}</h3>
                 <p className="mt-1 text-xs leading-relaxed text-[#475569]">{t(val.desc)}</p>
               </div>
             ))}
@@ -312,30 +315,34 @@ export default function AProposPage() {
         {/* Reconciled Data Block */}
         <section
           id="donnees"
-          className="mt-16 rounded-3xl bg-[#08162B] p-8 text-white shadow-xl sm:p-10"
+          className="relative mt-16 overflow-hidden rounded-3xl bg-[#071A33] p-8 text-white shadow-xl sm:p-10"
         >
-          <h2 className="text-2xl font-extrabold sm:text-3xl">
-            {t({ fr: "Données consolidées de l'établissement", en: "Verified Institutional Data" })}
-          </h2>
-          <p className="mt-2 max-w-3xl text-sm text-slate-300">
-            {t({
-              fr: "Effectifs totaux : 1 650 employés dont 207 médecins (123 spécialistes, 40 enseignants hospitalo-universitaires et 44 médecins généralistes), 1 145 personnels médico-sanitaires et 298 personnels d'appui. Hôpital de 2e catégorie · 70 % de patients à revenus modestes accueillis dans un esprit de solidarité publique.",
-              en: "Total workforce: 1,650 staff including 207 physicians (123 specialists, 40 university teaching faculty, 44 general practitioners), 1,145 nursing & allied health staff, and 298 support staff.",
-            })}
-          </p>
-          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {HOSPITAL_KPIS.map((k) => (
-              <div key={k.id} className="rounded-2xl border border-white/15 bg-white/5 p-5">
-                <p className="font-mono text-2xl font-bold text-[#DFB860]">
-                  {k.displayValue}
-                  {k.suffix ?? ""}
-                </p>
-                <p className="mt-1 text-sm font-bold">{t(k.label)}</p>
-                <p className="mt-0.5 text-xs text-slate-300">{t(k.sublabel)}</p>
-              </div>
-            ))}
+          <MedicalBackdrop variant="dark-clinical" />
+          <div className="relative">
+            <h2 className="text-2xl font-extrabold sm:text-3xl">
+              {t({ fr: "Données consolidées de l'établissement", en: "Verified Institutional Data" })}
+            </h2>
+            <p className="mt-2 max-w-3xl text-sm text-slate-300">
+              {t({
+                fr: "Effectifs totaux : 1 650 employés dont 207 médecins (123 spécialistes, 40 enseignants hospitalo-universitaires et 44 médecins généralistes), 1 145 personnels médico-sanitaires et 298 personnels d'appui. Hôpital de 2e catégorie · 70 % de patients à revenus modestes accueillis dans un esprit de solidarité publique.",
+                en: "Total workforce: 1,650 staff including 207 physicians (123 specialists, 40 university teaching faculty, 44 general practitioners), 1,145 nursing & allied health staff, and 298 support staff.",
+              })}
+            </p>
+            <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {HOSPITAL_KPIS.map((k) => (
+                <div key={k.id} className="rounded-2xl border border-sky-300/15 bg-white/5 p-5 backdrop-blur-sm">
+                  <p className="font-mono text-2xl font-bold text-[#38BDF8]">
+                    {k.displayValue}
+                    {k.suffix ?? ""}
+                  </p>
+                  <p className="mt-1 text-sm font-bold">{t(k.label)}</p>
+                  <p className="mt-0.5 text-xs text-slate-300">{t(k.sublabel)}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
+        </div>
       </div>
     </>
   );

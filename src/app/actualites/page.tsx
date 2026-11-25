@@ -22,6 +22,7 @@ import {
   type NewsArticle,
 } from "@/data/hospital-data";
 import { ChamferedEditorialFrame } from "@/components/ui/framed-media";
+import { MedicalBackdrop } from "@/components/ui/medical-backdrop";
 import { PageHero } from "@/components/ui/page-hero";
 
 export default function ActualitesPage() {
@@ -96,7 +97,9 @@ export default function ActualitesPage() {
         ]}
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+      <div className="relative overflow-x-clip">
+        <MedicalBackdrop variant="clinical" />
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         {/* Featured Latest Article */}
         <div className="grid items-center gap-8 rounded-3xl border border-white bg-white p-5 shadow-premium sm:p-6 lg:grid-cols-12 lg:p-8">
           <div className="min-w-0 lg:col-span-6">
@@ -178,8 +181,8 @@ export default function ActualitesPage() {
 
         {/* Articles Grid or Empty State */}
         {filtered.length === 0 ? (
-          <div className="mt-8 rounded-3xl border border-[#08162B]/10 bg-white p-12 text-center shadow-premium">
-            <Sparkles className="mx-auto h-9 w-9 text-[#B8892E]" aria-hidden="true" />
+          <div className="mt-8 rounded-3xl border border-[#071A33]/10 bg-white p-12 text-center shadow-premium">
+            <Sparkles className="mx-auto h-9 w-9 text-[#0A66C2]" aria-hidden="true" />
             <h2 className="mt-3 text-lg font-bold text-[#08162B]">
               {t({
                 fr: "Aucun article ne correspond à votre filtre",
@@ -212,7 +215,7 @@ export default function ActualitesPage() {
                 className="flex min-w-0 flex-col justify-between overflow-hidden rounded-3xl border border-white bg-white p-5 shadow-premium transition-all hover:-translate-y-1 hover:shadow-premium-hover"
               >
                 <div>
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[#EFECE6]">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[#E6F0FA]">
                     <Image
                       src={article.image}
                       alt={t(article.title)}
@@ -222,7 +225,7 @@ export default function ActualitesPage() {
                     />
                   </div>
                   <div className="mt-4 flex items-center gap-2 text-xs text-[#475569]">
-                    <Calendar className="h-3.5 w-3.5 text-[#B8892E]" aria-hidden="true" />
+                    <Calendar className="h-3.5 w-3.5 text-[#0D9488]" aria-hidden="true" />
                     <time dateTime={article.dateISO}>{t(article.dateLabel)}</time>
                     <span>·</span>
                     <span className="font-bold text-[#0A66C2]">{t(article.category)}</span>
@@ -272,7 +275,7 @@ export default function ActualitesPage() {
                 className="group flex flex-col justify-between rounded-3xl border border-white bg-white p-4 text-left shadow-premium transition-all hover:-translate-y-1 hover:shadow-premium-hover"
               >
                 <div>
-                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-[#EFECE6]">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-[#E6F0FA]">
                     <Image
                       src={tip.image}
                       alt={t(tip.title)}
@@ -284,11 +287,11 @@ export default function ActualitesPage() {
                   <p className="mt-3 flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase text-[#0A66C2]">
                     <span>{t(tip.category)}</span>
                     <span className="text-[#475569]/40">·</span>
-                    <span className="inline-flex items-center gap-1 text-[#08162B]">
+                    <span className="inline-flex items-center gap-1 text-[#071A33]">
                       {tip.format.fr.includes("Vidéo") ? (
-                        <Video className="h-3 w-3 text-[#B8892E]" aria-hidden="true" />
+                        <Video className="h-3 w-3 text-[#0D9488]" aria-hidden="true" />
                       ) : (
-                        <BookOpen className="h-3 w-3 text-[#B8892E]" aria-hidden="true" />
+                        <BookOpen className="h-3 w-3 text-[#0D9488]" aria-hidden="true" />
                       )}
                       {t(tip.format)}
                     </span>
@@ -307,6 +310,7 @@ export default function ActualitesPage() {
             ))}
           </div>
         </section>
+        </div>
       </div>
 
       {/* Article Reader Modal */}
@@ -336,7 +340,7 @@ export default function ActualitesPage() {
                 onClick={() => setSelectedArticle(null)}
                 aria-label={t({ fr: "Fermer", en: "Close" })}
                 autoFocus
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#08162B]/15 text-[#08162B] hover:bg-[#F8F7F4]"
+                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#071A33]/15 text-[#071A33] hover:bg-[#F2F7FC]"
               >
                 <X className="h-4 w-4" aria-hidden="true" />
               </button>
@@ -388,7 +392,7 @@ export default function ActualitesPage() {
                 onClick={() => setSelectedTip(null)}
                 aria-label={t({ fr: "Fermer", en: "Close" })}
                 autoFocus
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#08162B]/15 text-[#08162B] hover:bg-[#F8F7F4]"
+                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#071A33]/15 text-[#071A33] hover:bg-[#F2F7FC]"
               >
                 <X className="h-4 w-4" aria-hidden="true" />
               </button>
@@ -408,7 +412,7 @@ export default function ActualitesPage() {
               {t(selectedTip.summary)}
             </p>
 
-            <div className="mt-5 rounded-2xl border border-[#08162B]/10 bg-[#F8F7F4] p-4">
+            <div className="mt-5 rounded-2xl border border-[#071A33]/10 bg-[#F2F7FC] p-4">
               <p className="text-xs font-bold uppercase tracking-wider text-[#08162B]">
                 {t({ fr: "Départements concernés", en: "Related departments" })}
               </p>

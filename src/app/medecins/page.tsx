@@ -17,6 +17,7 @@ import {
 import { useLanguage } from "@/context/language-context";
 import { DEPARTMENTS, DOCTORS, SERVICES, type Doctor } from "@/data/hospital-data";
 import { PractitionerPortraitFrame } from "@/components/ui/framed-media";
+import { MedicalBackdrop } from "@/components/ui/medical-backdrop";
 import { PageHero } from "@/components/ui/page-hero";
 
 export default function MedecinsPage() {
@@ -105,7 +106,9 @@ export default function MedecinsPage() {
         ]}
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
+      <div className="relative overflow-x-clip">
+        <MedicalBackdrop variant="clinical" />
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
         {/* Search & Language Filter Row */}
         <div className="rounded-3xl border border-white bg-white p-5 shadow-premium sm:p-6">
           <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
@@ -126,7 +129,7 @@ export default function MedecinsPage() {
                   fr: "Nom du praticien ou spécialité (Cardiologie, Pédiatrie...)",
                   en: "Doctor name or specialty...",
                 })}
-                className="w-full rounded-full border border-[#08162B]/15 bg-[#F8F7F4] py-2.5 pl-11 pr-4 text-sm text-[#08162B] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
+                className="w-full rounded-full border border-[#071A33]/15 bg-[#F2F7FC] py-2.5 pl-11 pr-4 text-sm text-[#071A33] focus:border-[#0A66C2] focus:bg-white focus:outline-none"
               />
             </div>
 
@@ -135,7 +138,7 @@ export default function MedecinsPage() {
               <div
                 role="group"
                 aria-label={t({ fr: "Langue de consultation", en: "Consultation language" })}
-                className="inline-flex flex-wrap items-center gap-1 rounded-2xl border border-[#08162B]/15 bg-[#F8F7F4] p-1 sm:rounded-full"
+                className="inline-flex flex-wrap items-center gap-1 rounded-2xl border border-[#071A33]/15 bg-[#F2F7FC] p-1 sm:rounded-full"
               >
                 <Globe className="ml-2 h-3.5 w-3.5 text-[#0A66C2]" aria-hidden="true" />
                 {(["all", "Français", "English"] as const).map((lang) => (
@@ -181,7 +184,7 @@ export default function MedecinsPage() {
                   className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all ${
                     active
                       ? "bg-[#0A66C2] text-white shadow-sm"
-                      : "border border-[#08162B]/12 bg-[#F8F7F4] text-[#475569] hover:border-[#0A66C2]"
+                      : "border border-[#071A33]/12 bg-[#F2F7FC] text-[#475569] hover:border-[#0A66C2]"
                   }`}
                 >
                   {t(tab.label)}
@@ -240,8 +243,8 @@ export default function MedecinsPage() {
 
         {/* Empty State or Doctors Grid */}
         {filtered.length === 0 ? (
-          <div className="mt-6 rounded-3xl border border-[#08162B]/10 bg-white p-12 text-center shadow-premium">
-            <Sparkles className="mx-auto h-9 w-9 text-[#B8892E]" aria-hidden="true" />
+          <div className="mt-6 rounded-3xl border border-[#071A33]/10 bg-white p-12 text-center shadow-premium">
+            <Sparkles className="mx-auto h-9 w-9 text-[#0A66C2]" aria-hidden="true" />
             <h2 className="mt-3 text-lg font-bold text-[#08162B]">
               {t({
                 fr: "Aucun praticien ne correspond à ces critères",
@@ -301,22 +304,22 @@ export default function MedecinsPage() {
                     </div>
 
                     <div className="mt-4 flex flex-wrap items-center gap-2 text-[11px] text-[#475569]">
-                      <span className="inline-flex items-center gap-1 rounded-full bg-[#F8F7F4] px-2.5 py-1 font-medium">
-                        <Clock className="h-3 w-3 text-[#B8892E]" aria-hidden="true" />
+                      <span className="inline-flex items-center gap-1 rounded-full bg-[#F2F7FC] px-2.5 py-1 font-medium">
+                        <Clock className="h-3 w-3 text-[#0D9488]" aria-hidden="true" />
                         {t(doc.schedule)}
                       </span>
-                      <span className="inline-flex items-center gap-1 rounded-full bg-[#F8F7F4] px-2.5 py-1 font-medium">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-[#F2F7FC] px-2.5 py-1 font-medium">
                         <Globe className="h-3 w-3 text-[#0A66C2]" aria-hidden="true" />
                         {doc.languages.join(" · ")}
                       </span>
                     </div>
                   </div>
 
-                  <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-[#08162B]/8 pt-4 text-xs">
+                  <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-[#071A33]/8 pt-4 text-xs">
                     <button
                       type="button"
                       onClick={() => setSelectedDoc(doc)}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-[#08162B]/15 bg-[#F8F7F4] px-3.5 py-1.5 font-bold text-[#08162B] transition-colors hover:border-[#0A66C2] hover:text-[#0A66C2]"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-[#071A33]/15 bg-[#F2F7FC] px-3.5 py-1.5 font-bold text-[#071A33] transition-colors hover:border-[#0A66C2] hover:text-[#0A66C2]"
                     >
                       <UserCheck className="h-3.5 w-3.5" aria-hidden="true" />
                       <span>{t({ fr: "Profil", en: "Profile" })}</span>
@@ -335,6 +338,7 @@ export default function MedecinsPage() {
             })}
           </div>
         )}
+        </div>
       </div>
 
       {/* ================================================================
@@ -388,7 +392,7 @@ export default function MedecinsPage() {
                     onClick={() => setSelectedDoc(null)}
                     aria-label={t({ fr: "Fermer", en: "Close" })}
                     autoFocus
-                    className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#08162B]/15 text-[#08162B] hover:bg-[#F8F7F4]"
+                    className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#071A33]/15 text-[#071A33] hover:bg-[#F2F7FC]"
                   >
                     <X className="h-4 w-4" aria-hidden="true" />
                   </button>
@@ -396,38 +400,38 @@ export default function MedecinsPage() {
 
                 <dl className="mt-6 grid gap-3 sm:grid-cols-2">
                   {dept ? (
-                    <div className="rounded-2xl bg-[#F8F7F4] p-4">
+                    <div className="rounded-2xl bg-[#F2F7FC] p-4">
                       <dt className="flex items-center gap-1.5 text-[11px] font-bold uppercase text-[#475569]">
                         <Building2 className="h-3.5 w-3.5 text-[#0A66C2]" aria-hidden="true" />
                         {t({ fr: "Département & Pavillon", en: "Department & Pavilion" })}
                       </dt>
-                      <dd className="mt-1 text-xs font-bold text-[#08162B]">
+                      <dd className="mt-1 text-xs font-bold text-[#071A33]">
                         {t(dept.name)} · {t(dept.building)}
                       </dd>
                     </div>
                   ) : null}
 
-                  <div className="rounded-2xl bg-[#F8F7F4] p-4">
+                  <div className="rounded-2xl bg-[#F2F7FC] p-4">
                     <dt className="flex items-center gap-1.5 text-[11px] font-bold uppercase text-[#475569]">
-                      <Clock className="h-3.5 w-3.5 text-[#B8892E]" aria-hidden="true" />
+                      <Clock className="h-3.5 w-3.5 text-[#0D9488]" aria-hidden="true" />
                       {t({ fr: "Horaires habituels", en: "Usual schedule" })}
                     </dt>
-                    <dd className="mt-1 text-xs font-bold text-[#08162B]">
+                    <dd className="mt-1 text-xs font-bold text-[#071A33]">
                       {t(selectedDoc.schedule)}
                     </dd>
                   </div>
 
-                  <div className="rounded-2xl bg-[#F8F7F4] p-4">
+                  <div className="rounded-2xl bg-[#F2F7FC] p-4">
                     <dt className="flex items-center gap-1.5 text-[11px] font-bold uppercase text-[#475569]">
                       <Globe className="h-3.5 w-3.5 text-[#0D7A5F]" aria-hidden="true" />
                       {t({ fr: "Langues parlées", en: "Languages spoken" })}
                     </dt>
-                    <dd className="mt-1 text-xs font-bold text-[#08162B]">
+                    <dd className="mt-1 text-xs font-bold text-[#071A33]">
                       {selectedDoc.languages.join(" · ")}
                     </dd>
                   </div>
 
-                  <div className="rounded-2xl bg-[#F8F7F4] p-4">
+                  <div className="rounded-2xl bg-[#F2F7FC] p-4">
                     <dt className="text-[11px] font-bold uppercase text-[#475569]">
                       {t({ fr: "Tarifs de consultation", en: "Consultation fees" })}
                     </dt>

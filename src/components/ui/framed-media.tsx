@@ -29,19 +29,19 @@ export function ArchitecturalArchFrame({
 }: ArchitecturalArchFrameProps) {
   return (
     <div className={`relative group p-2 sm:p-3 ${className}`}>
-      {/* Contained architectural gold + cobalt outline inside safe padding (never overflows) */}
+      {/* Contained luminous clinical sky-cyan + teal contour inside safe padding */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-1 translate-x-1 translate-y-1 rounded-t-[4rem] rounded-bl-[2.5rem] rounded-br-2xl border border-[#B8892E]/45 transition-transform duration-500 group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+        className="pointer-events-none absolute inset-1 translate-x-1 translate-y-1 rounded-t-[2.75rem] rounded-b-3xl border border-[#0EA5E9]/40 shadow-[0_0_28px_-8px_rgba(14,165,233,0.3)] transition-transform duration-500 group-hover:translate-x-1.5 group-hover:translate-y-1.5"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-1.5 -translate-x-0.5 -translate-y-0.5 rounded-t-[3.75rem] rounded-bl-[2.25rem] rounded-br-xl border border-[#0A66C2]/25"
+        className="pointer-events-none absolute inset-1.5 -translate-x-0.5 -translate-y-0.5 rounded-t-[2.5rem] rounded-b-[1.35rem] border border-[#14B8A6]/35"
       />
 
-      {/* Main sculpted arch image container */}
+      {/* Main sculpted clinical image container */}
       <div
-        className={`relative overflow-hidden rounded-t-[3.5rem] rounded-bl-[2.25rem] rounded-br-xl bg-[#EFECE6] shadow-premium ring-1 ring-white/80 ${aspectClass}`}
+        className={`relative overflow-hidden rounded-t-[2.5rem] rounded-b-3xl bg-[#E6F0FA] shadow-premium ring-1 ring-white/95 ${aspectClass}`}
       >
         <Image
           src={src}
@@ -79,18 +79,18 @@ export function ChamferedEditorialFrame({
 }: ChamferedEditorialFrameProps) {
   return (
     <div className={`relative group p-2 sm:p-2.5 ${className}`}>
-      {/* Contained corner accent brackets */}
+      {/* Contained glowing corner accent brackets */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-0 top-0 h-8 w-8 border-l-2 border-t-2 border-[#B8892E]"
+        className="pointer-events-none absolute left-0 top-0 h-8 w-8 border-l-2 border-t-2 border-[#0D9488] drop-shadow-[0_0_8px_rgba(13,148,136,0.45)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 right-0 h-8 w-8 border-b-2 border-r-2 border-[#0A66C2]"
+        className="pointer-events-none absolute bottom-0 right-0 h-8 w-8 border-b-2 border-r-2 border-[#0EA5E9] drop-shadow-[0_0_8px_rgba(14,165,233,0.45)]"
       />
 
       <div
-        className={`clip-chamfer relative overflow-hidden bg-[#EFECE6] shadow-premium ${aspectClass}`}
+        className={`clip-chamfer relative overflow-hidden bg-[#E6F0FA] shadow-premium ${aspectClass}`}
       >
         <Image
           src={src}
@@ -133,7 +133,7 @@ export function OverlappingImageShowcase({
   primaryAlt,
   secondarySrc,
   secondaryAlt,
-  ringColorClass = "ring-[#F8F7F4]",
+  ringColorClass = "ring-[#F4F8FC]",
   priority = false,
   align = "left",
   className = "",
@@ -155,7 +155,7 @@ export function OverlappingImageShowcase({
 
       {/* Overlapping secondary framed image contained within bounds */}
       <div
-        className={`absolute ${secondaryPos} z-10 w-[42%] max-w-[220px] overflow-hidden rounded-2xl bg-[#08162B] shadow-2xl ring-4 sm:rounded-3xl sm:ring-6 ${ringColorClass} transition-transform duration-500 hover:-translate-y-1`}
+        className={`absolute ${secondaryPos} z-10 w-[42%] max-w-[220px] overflow-hidden rounded-2xl bg-[#071A33] shadow-2xl ring-4 sm:rounded-3xl sm:ring-6 ${ringColorClass} transition-transform duration-500 hover:-translate-y-1`}
       >
         <div className="relative aspect-[4/3] w-full">
           <Image
@@ -208,7 +208,7 @@ export function PractitionerPortraitFrame({
 
   return (
     <div
-      className={`relative shrink-0 overflow-hidden border border-[#B8892E]/35 bg-[#EFECE6] shadow-sm ${sizeClasses} ${className}`}
+      className={`relative shrink-0 overflow-hidden border border-[#0A66C2]/20 bg-[#E8F2FC] shadow-sm ${sizeClasses} ${className}`}
     >
       {src ? (
         <Image
@@ -221,10 +221,10 @@ export function PractitionerPortraitFrame({
       ) : (
         <div
           className="bg-dot-matrix flex h-full w-full items-center justify-center"
-          style={{ backgroundColor: `${accentColor}12` }}
+          style={{ backgroundColor: `${accentColor}14` }}
         >
           <span
-            className="font-serif text-xl font-semibold tracking-wider"
+            className="font-sans text-lg font-extrabold tracking-wider"
             style={{ color: accentColor }}
           >
             {initials || "HL"}

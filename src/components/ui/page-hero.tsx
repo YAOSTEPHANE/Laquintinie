@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { ChevronRight, Home } from "lucide-react";
 import { useLanguage } from "@/context/language-context";
+import { MedicalBackdrop } from "@/components/ui/medical-backdrop";
 
 export interface BreadcrumbItem {
   label: string;
@@ -36,23 +37,23 @@ const EYEBROW_TONES: Record<
     dot: "bg-[#0A66C2]",
   },
   gold: {
-    badge: "border-[#B8892E]/35 bg-white/90 text-[#8B641A]",
-    dot: "bg-[#B8892E]",
+    badge: "border-[#0D9488]/25 bg-white/95 text-[#0F766E]",
+    dot: "bg-[#0D9488]",
   },
   crimson: {
-    badge: "border-[#C81E1E]/25 bg-white/90 text-[#C81E1E]",
+    badge: "border-[#C81E1E]/25 bg-white/95 text-[#C81E1E]",
     dot: "bg-[#C81E1E]",
   },
   emerald: {
-    badge: "border-[#0D7A5F]/25 bg-white/90 text-[#0D7A5F]",
+    badge: "border-[#0D7A5F]/25 bg-white/95 text-[#0D7A5F]",
     dot: "bg-[#0D7A5F]",
   },
 };
 
 /**
  * PageHero
- * Shared architectural hero header for all secondary pages with ambient glows,
- * accessible pill breadcrumbs, KPI strip or 12-column right visual slot.
+ * Shared clinical architectural hero header for all secondary pages with rich medical
+ * geometric shapes, accessible pill breadcrumbs, and KPI strip or 12-column right slot.
  */
 export function PageHero({
   breadcrumbs,
@@ -70,23 +71,15 @@ export function PageHero({
 
   return (
     <section
-      className={`relative overflow-hidden border-b border-[#08162B]/8 bg-arch-grid py-10 sm:py-12 lg:py-14 ${className}`}
+      className={`relative overflow-hidden border-b border-sky-200/70 bg-gradient-to-br from-[#EAF3FE] via-[#F4F9FF] to-[#ECFEFF] py-10 sm:py-12 lg:py-14 ${className}`}
     >
-      {/* Ambient architectural radial glows */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-36 -top-36 h-[420px] w-[420px] rounded-full bg-[#0A66C2]/8 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-28 bottom-0 h-[340px] w-[340px] rounded-full bg-[#DFB860]/12 blur-3xl"
-      />
+      <MedicalBackdrop variant="hero" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Pill Breadcrumb Bar */}
         <nav
           aria-label={t({ fr: "Fil d'Ariane", en: "Breadcrumb" })}
-          className="inline-flex max-w-full flex-wrap items-center rounded-full border border-[#08162B]/10 bg-white/85 px-3.5 py-1.5 text-xs font-medium text-[#475569] shadow-sm backdrop-blur-md"
+          className="inline-flex max-w-full flex-wrap items-center rounded-full border border-sky-200/80 bg-white/90 px-3.5 py-1.5 text-xs font-medium text-[#475569] shadow-sm backdrop-blur-md"
         >
           <ol className="flex flex-wrap items-center gap-1.5">
             {breadcrumbs.map((crumb, index) => {
@@ -106,7 +99,7 @@ export function PageHero({
                       <span>{crumb.label}</span>
                     </Link>
                   ) : (
-                    <span className="font-semibold text-[#08162B]">{crumb.label}</span>
+                    <span className="font-semibold text-[#071A33]">{crumb.label}</span>
                   )}
                 </li>
               );
@@ -126,7 +119,7 @@ export function PageHero({
                 </span>
               ) : null}
 
-              <h1 className="mt-4 break-words text-3xl font-extrabold leading-[1.1] tracking-tight text-[#08162B] sm:text-4xl lg:text-[44px]">
+              <h1 className="mt-4 break-words text-3xl font-extrabold leading-[1.1] tracking-tight text-[#071A33] sm:text-4xl lg:text-[44px]">
                 {title}
               </h1>
 
@@ -143,9 +136,17 @@ export function PageHero({
                   {stats.map((stat) => (
                     <div
                       key={stat.label}
-                      className="min-w-0 rounded-2xl border border-white/90 bg-white/90 px-3.5 py-3 shadow-sm backdrop-blur-md sm:px-4"
+                      className="relative min-w-0 overflow-hidden rounded-2xl border border-sky-200/90 bg-white/90 px-3.5 py-3 shadow-premium backdrop-blur-xl sm:px-4"
                     >
-                      <p className="break-words font-mono text-base font-extrabold text-[#08162B] sm:text-lg">
+                      <span
+                        aria-hidden="true"
+                        className="pointer-events-none absolute -right-4 -top-4 h-14 w-14 rounded-full bg-[#0EA5E9]/10 blur-sm"
+                      />
+                      <span
+                        aria-hidden="true"
+                        className="mb-2 block h-1 w-8 rounded-full bg-gradient-to-r from-[#0A66C2] to-[#0D9488] shadow-[0_0_10px_rgba(14,165,233,0.45)]"
+                      />
+                      <p className="break-words font-mono text-base font-extrabold text-[#071A33] sm:text-lg">
                         {stat.value}
                       </p>
                       <p className="mt-0.5 text-[11px] font-medium text-[#475569]">{stat.label}</p>
@@ -169,7 +170,7 @@ export function PageHero({
                 </span>
               ) : null}
 
-              <h1 className="mt-4 break-words text-3xl font-extrabold leading-[1.1] tracking-tight text-[#08162B] sm:text-4xl lg:text-[44px]">
+              <h1 className="mt-4 break-words text-3xl font-extrabold leading-[1.1] tracking-tight text-[#071A33] sm:text-4xl lg:text-[44px]">
                 {title}
               </h1>
 
@@ -187,9 +188,17 @@ export function PageHero({
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="min-w-0 rounded-2xl border border-white/90 bg-white/90 px-3.5 py-3.5 shadow-sm backdrop-blur-md sm:px-4"
+                    className="relative min-w-0 overflow-hidden rounded-2xl border border-sky-200/90 bg-white/90 px-3.5 py-3.5 shadow-premium backdrop-blur-xl sm:px-4"
                   >
-                    <p className="break-words font-mono text-base font-extrabold text-[#08162B] sm:text-lg xl:text-xl">
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -right-4 -top-4 h-14 w-14 rounded-full bg-[#0EA5E9]/10 blur-sm"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="mb-2 block h-1 w-8 rounded-full bg-gradient-to-r from-[#0A66C2] to-[#0D9488] shadow-[0_0_10px_rgba(14,165,233,0.45)]"
+                    />
+                    <p className="break-words font-mono text-base font-extrabold text-[#071A33] sm:text-lg xl:text-xl">
                       {stat.value}
                     </p>
                     <p className="mt-0.5 text-[11px] font-medium text-[#475569]">{stat.label}</p>

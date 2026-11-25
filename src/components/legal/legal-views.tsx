@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/context/language-context";
 import { HOSPITAL_CONTACT } from "@/data/hospital-data";
+import { MedicalBackdrop } from "@/components/ui/medical-backdrop";
 import { PageHero } from "@/components/ui/page-hero";
 
 export function ConfidentialiteView() {
@@ -45,7 +46,9 @@ export function ConfidentialiteView() {
         })}
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+      <div className="relative overflow-x-clip">
+        <MedicalBackdrop variant="clinical" />
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div className="grid gap-8 lg:grid-cols-12">
           {/* Sticky Sidebar Nav + Zero-Cookie Guarantee */}
           <aside className="min-w-0 space-y-5 lg:sticky lg:top-28 lg:col-span-4">
@@ -61,7 +64,7 @@ export function ConfidentialiteView() {
                   <li key={sec.id}>
                     <a
                       href={`#${sec.id}`}
-                      className="block rounded-xl px-2.5 py-1.5 hover:bg-[#F8F7F4] hover:text-[#0A66C2]"
+                      className="block rounded-xl px-2.5 py-1.5 hover:bg-[#F2F7FC] hover:text-[#0A66C2]"
                     >
                       {t(sec.label)}
                     </a>
@@ -213,6 +216,7 @@ export function ConfidentialiteView() {
             </div>
           </div>
         </div>
+        </div>
       </div>
     </>
   );
@@ -235,7 +239,7 @@ export function MentionsLegalesView() {
           { label: t({ fr: "Mentions légales", en: "Legal Notice" }) },
         ]}
         eyebrow={t({ fr: "Informations réglementaires", en: "Institutional Disclosures" })}
-        eyebrowTone="gold"
+        eyebrowTone="cobalt"
         title={t({ fr: "Mentions légales", en: "Legal Notice" })}
         description={t({
           fr: `Conformément aux obligations d'information du public applicables au portail officiel de l'${HOSPITAL_CONTACT.name}.`,
@@ -243,7 +247,9 @@ export function MentionsLegalesView() {
         })}
       />
 
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+      <div className="relative overflow-x-clip">
+        <MedicalBackdrop variant="clinical" />
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div className="grid gap-8 lg:grid-cols-12">
           <aside className="min-w-0 space-y-5 lg:sticky lg:top-28 lg:col-span-4">
             <nav
@@ -258,7 +264,7 @@ export function MentionsLegalesView() {
                   <li key={sec.id}>
                     <a
                       href={`#${sec.id}`}
-                      className="block rounded-xl px-2.5 py-1.5 hover:bg-[#F8F7F4] hover:text-[#0A66C2]"
+                      className="block rounded-xl px-2.5 py-1.5 hover:bg-[#F2F7FC] hover:text-[#0A66C2]"
                     >
                       {t(sec.label)}
                     </a>
@@ -294,7 +300,7 @@ export function MentionsLegalesView() {
                     en: "Second-category public referral hospital operating under the Ministry of Public Health of the Republic of Cameroon.",
                   })}
                 </p>
-                <ul className="mt-4 space-y-2 rounded-2xl bg-[#F8F7F4] p-5">
+                <ul className="mt-4 space-y-2 rounded-2xl border border-sky-100 bg-[#F2F7FC] p-5">
                   <li>
                     <strong>{t({ fr: "Adresse :", en: "Address:" })}</strong>{" "}
                     {HOSPITAL_CONTACT.poBox}, {HOSPITAL_CONTACT.address}, {HOSPITAL_CONTACT.city},{" "}
@@ -378,6 +384,7 @@ export function MentionsLegalesView() {
               </section>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </>
